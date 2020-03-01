@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#02FFFFFF">
+    <View
+        android:id="@+id/view4"
+        android:layout_width="359dp"
+        android:layout_height="540dp"
+        android:background="@drawable/cook3"
+        android:translationX="0dp"
+        android:translationY="100dp"
+        tools:ignore="ContentDescription,MissingConstraints"
+        />
+    <ImageButton
+        android:id="@+id/favorite"
+        android:layout_width="87dp"
+        android:layout_height="83dp"
+        android:background="#05FFFFFF"
+        android:padding="1dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/star_favorites"
+        android:translationX="220dp"
+        android:translationY="220dp"
+        android:visibility="visible"
+        tools:ignore="ContentDescription,MissingConstraints"
+        />
+
+
+
+    <ImageButton
+        android:id="@+id/Notes"
+        android:layout_width="87dp"
+        android:layout_height="83dp"
+        android:background="#05FFFFFF"
+        android:padding="5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/notes10"
+        android:translationX="220dp"
+        android:translationY="400dp"
+        android:visibility="visible"
+        tools:ignore="ContentDescription,MissingConstraints"
+        />
+
+    <ImageButton
+        android:id="@+id/Fridg"
+        android:layout_width="87dp"
+        android:layout_height="83dp"
+        android:background="#05FFFFFF"
+        android:padding="8dp"
+        android:paddingLeft="250dp"
+        android:paddingTop="150dp"
+        android:paddingRight="250dp"
+        android:paddingBottom="150dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/kisspng_drawing_refrigerator_kitchen_painting_refigerator_5b2488610ffa00_5412211615291208650655"
+        android:translationX="80dp"
+        android:translationY="220dp"
+        tools:ignore="ContentDescription,MissingConstraints"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/log"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:background="#05FFFFFF"
+        android:translationX="0dp"
+        android:translationY="0dp"
+        app:srcCompat="@drawable/kju2"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/Search"
+        android:layout_width="87dp"
+        android:layout_height="83dp"
+        android:background="#05FFFFFF"
+        android:padding="8dp"
+        android:paddingLeft="250dp"
+        android:paddingTop="150dp"
+        android:paddingRight="250dp"
+        android:paddingBottom="150dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/search2"
+        android:translationX="80dp"
+        android:translationY="400dp"
+        android:visibility="visible"
+        tools:ignore="ContentDescription,MissingConstraints"
+        />
+
+    <ImageButton
+        android:id="@+id/Back"
+        android:layout_width="87dp"
+        android:layout_height="83dp"
+        android:background="#05FFFFFF"
+        android:padding="1dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/monotone_arrow_left_small"
+        android:translationX="140dp"
+        android:translationY="500dp"
+        android:visibility="visible"
+        tools:ignore="ContentDescription,MissingConstraints"
+        />
+
+
+</android.support.constraint.ConstraintLayout>

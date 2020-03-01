@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+
+    tools:ignore="ExtraText">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="359dp"
+        android:layout_height="540dp"
+        android:background="@drawable/cook3"
+        android:translationX="0dp"
+        android:translationY="100dp"
+        tools:ignore="MissingConstraints"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:textSize="24sp"
+        android:translationX="140dp"
+        android:translationY="100dp"
+        android:visibility="visible"
+        tools:ignore="ContentDescription,MissingConstraints"
+        tools:text="" />
+
+    <ImageButton
+        android:id="@+id/AddRecipes"
+        android:layout_width="87dp"
+        android:layout_height="83dp"
+        android:padding="12dp"
+        android:background="#05FFFFFF"
+        android:paddingLeft="250dp"
+        android:paddingTop="150dp"
+        android:paddingRight="250dp"
+        android:paddingBottom="150dp"
+        android:scaleType="fitXY"
+        android:translationX="210dp"
+        android:translationY="500dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/add"
+        tools:ignore="ContentDescription,MissingConstraints"
+        tools:srcCompat="@drawable/add" />
+
+    <ImageButton
+        android:id="@+id/Home"
+        android:layout_width="87dp"
+        android:layout_height="83dp"
+        android:background="#05FFFFFF"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+        android:translationX="300dp"
+        android:translationY="500dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/house"
+        tools:ignore="ContentDescription,MissingConstraints"
+        tools:srcCompat="@drawable/house"
+
+    />
+
+    <ImageButton
+        android:id="@+id/Search"
+        android:layout_width="87dp"
+        android:layout_height="83dp"
+        android:background="#05FFFFFF"
+        android:padding="8dp"
+        android:paddingLeft="250dp"
+        android:paddingTop="150dp"
+        android:paddingRight="250dp"
+        android:paddingBottom="150dp"
+        android:scaleType="fitXY"
+        android:translationX="40dp"
+        android:translationY="500dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/search2"
+        tools:ignore="ContentDescription,MissingConstraints"
+        tools:srcCompat="@drawable/search2" />
+
+    <ImageButton
+        android:id="@+id/Notes"
+        android:layout_width="87dp"
+        android:layout_height="83dp"
+        android:background="#05FFFFFF"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+        android:translationX="115dp"
+        android:translationY="500dp"
+        android:visibility="visible"
+        tools:ignore="ContentDescription,MissingConstraints"
+        tools:srcCompat="@drawable/notes10"
+        app:srcCompat="@drawable/notes10"
+         />
+
+    <ImageView
+        android:id="@+id/log"
+        android:layout_width="380dp"
+        android:layout_height="100dp"
+        android:background="#05FFFFFF"
+        app:srcCompat="@drawable/kju2"
+        tools:ignore="ContentDescription,MissingConstraints"
+        android:translationX="0dp"
+        android:translationY="0dp" /><![CDATA[
+
+
+
+
+
+
+
+
+
+
+
+    />
+
+
+
+
+
+
+]]>
+</android.support.constraint.ConstraintLayout>

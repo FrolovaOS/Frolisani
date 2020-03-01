@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".search">
+
+    <ScrollView
+        android:layout_width="358dp"
+        android:layout_height="638dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <SearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="360dp"
+                android:layout_height="180dp"
+                android:background="#05FFFFFF"
+                android:padding="12dp"
+                android:paddingLeft="250dp"
+                android:paddingTop="150dp"
+                android:paddingRight="250dp"
+                android:paddingBottom="150dp"
+                android:scaleType="fitXY"
+                android:translationX="0dp"
+                android:translationY="0dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/add"
+                tools:ignore="ContentDescription,MissingConstraints"
+                tools:srcCompat="@drawable/add" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="360dp"
+                android:layout_height="180dp"
+                android:background="#05FFFFFF"
+                android:padding="12dp"
+                android:paddingLeft="250dp"
+                android:paddingTop="150dp"
+                android:paddingRight="250dp"
+                android:paddingBottom="150dp"
+                android:scaleType="fitXY"
+                android:translationX="0dp"
+                android:translationY="0dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/add"
+                tools:ignore="ContentDescription,MissingConstraints"
+                tools:srcCompat="@drawable/add" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="360dp"
+                android:layout_height="180dp"
+                android:background="#05FFFFFF"
+                android:padding="12dp"
+                android:paddingLeft="250dp"
+                android:paddingTop="150dp"
+                android:paddingRight="250dp"
+                android:paddingBottom="150dp"
+                android:scaleType="fitXY"
+                android:translationX="0dp"
+                android:translationY="0dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/add"
+                tools:ignore="ContentDescription,MissingConstraints"
+                tools:srcCompat="@drawable/add" />
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="360dp"
+                android:layout_height="180dp"
+                android:background="#05FFFFFF"
+                android:padding="12dp"
+                android:paddingLeft="250dp"
+                android:paddingTop="150dp"
+                android:paddingRight="250dp"
+                android:paddingBottom="150dp"
+                android:scaleType="fitXY"
+                android:translationX="0dp"
+                android:translationY="0dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/add"
+                tools:ignore="ContentDescription,MissingConstraints"
+                tools:srcCompat="@drawable/add" />
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
