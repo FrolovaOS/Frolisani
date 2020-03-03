@@ -15,7 +15,7 @@
         tools:ignore="ContentDescription,MissingConstraints"
         />
     <ImageButton
-        android:id="@+id/favorite"
+        android:id="@+id/Favorite"
         android:layout_width="87dp"
         android:layout_height="83dp"
         android:background="#05FFFFFF"

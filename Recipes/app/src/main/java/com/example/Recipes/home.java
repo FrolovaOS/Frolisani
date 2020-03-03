@@ -8,11 +8,50 @@ import android.widget.ImageButton;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
-public class home extends Activity {
+public class home extends AppCompatActivity  implements View.OnClickListener {
+    ImageButton Fridg, Favourite, Search, Notes, Back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_home);
+
+        Fridg = (ImageButton) findViewById(R.id.Fridg);
+        Fridg.setOnClickListener(this);
+        Favourite = (ImageButton) findViewById(R.id.Favorite);
+        Favourite.setOnClickListener(this);
+        Search = (ImageButton) findViewById(R.id.Search);
+        Search.setOnClickListener(this);
+        Notes = (ImageButton) findViewById(R.id.Notes);
+        Notes.setOnClickListener(this);
+        Back = (ImageButton) findViewById(R.id.Back);
+        Back.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.Fridg:
+                Intent intent = new Intent(home.this, Fridg.class);
+                startActivity(intent);
+                break;
+            case R.id.Notes:
+                intent = new Intent(home.this, Notes.class);
+                startActivity(intent);
+                break;
+            case R.id.Search:
+                intent = new Intent(home.this, search.class);
+                startActivity(intent);
+                break;
+            case R.id.Favorite:
+                intent = new Intent(home.this, Favorite.class);
+                startActivity(intent);
+                break;
+            case R.id.Back:
+                intent = new Intent(home.this, MainActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }
