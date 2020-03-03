@@ -1,13 +1,12 @@
 package com.example.Recipes;
-import android.app.Activity;
+
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 public class home extends AppCompatActivity  implements View.OnClickListener {
     ImageButton Fridg, Favourite, Search, Notes, Back;
 
