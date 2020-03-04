@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.Notes:
-                 intent = new Intent(MainActivity.this, com.example.Recipes.Notes.class);
+                 intent = new Intent(MainActivity.this, com.example.Recipes.screens.Note.Main_note.class);
                 startActivity(intent);
                 break;
             case R.id.Search:

@@ -38,7 +38,7 @@ public class home extends AppCompatActivity  implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.Notes:
-                intent = new Intent(home.this, com.example.Recipes.Notes.class);
+                intent = new Intent(home.this, com.example.Recipes.screens.Note.Main_note.class);
                 startActivity(intent);
                 break;
             case R.id.Search:
