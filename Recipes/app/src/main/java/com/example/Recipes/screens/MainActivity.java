@@ -1,9 +1,11 @@
-package com.example.Recipes;
+package com.example.Recipes.screens;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.Recipes.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     ImageButton AddRecipes,Home,Search,Notes;
@@ -29,11 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId())
         {
             case R.id.AddRecipes:
-                Intent intent = new Intent(MainActivity.this, AddRecipes.class);
+                Intent intent = new Intent(MainActivity.this, com.example.Recipes.screens.AddRecipes.class);
                 startActivity(intent);
                 break;
             case R.id.Notes:
-                 intent = new Intent(MainActivity.this, Notes.class);
+                 intent = new Intent(MainActivity.this, com.example.Recipes.Notes.class);
                 startActivity(intent);
                 break;
             case R.id.Search:

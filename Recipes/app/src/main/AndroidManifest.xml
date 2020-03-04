@@ -9,19 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Favorite"></activity>
-        <activity android:name=".Fridg" />
-        <activity android:name=".AddRecipes" />
+        <activity
+            android:name="com.example.Recipes.screens.Note.Main_note"
+            android:label="@string/title_activity_main_note"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name="com.example.Recipes.screens.Favorite" />
+        <activity android:name="com.example.Recipes.screens.Fridg" />
+        <activity android:name=".App" />
+        <activity android:name="com.example.Recipes.screens.AddRecipes" />
         <activity android:name=".Notes" />
-        <activity android:name=".search" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.Recipes.screens.search" />
+        <activity android:name="com.example.Recipes.screens.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home" />
+        <activity android:name="com.example.Recipes.screens.home" />
     </application>
 
 </manifest>

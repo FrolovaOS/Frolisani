@@ -1,4 +1,4 @@
-package com.example.Recipes;
+package com.example.Recipes.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.Recipes.R;
 
 public class home extends AppCompatActivity  implements View.OnClickListener {
     ImageButton Fridg, Favourite, Search, Notes, Back;
@@ -32,11 +34,11 @@ public class home extends AppCompatActivity  implements View.OnClickListener {
         switch (v.getId())
         {
             case R.id.Fridg:
-                Intent intent = new Intent(home.this, Fridg.class);
+                Intent intent = new Intent(home.this, com.example.Recipes.screens.Fridg.class);
                 startActivity(intent);
                 break;
             case R.id.Notes:
-                intent = new Intent(home.this, Notes.class);
+                intent = new Intent(home.this, com.example.Recipes.Notes.class);
                 startActivity(intent);
                 break;
             case R.id.Search:

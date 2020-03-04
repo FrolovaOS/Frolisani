@@ -1,13 +1,15 @@
-package com.example.Recipes;
+package com.example.Recipes.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AddRecipes extends AppCompatActivity {
+import com.example.Recipes.R;
+
+public class Favorite extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_recipes);
+        setContentView(R.layout.activity_favorite);
     }
 }
