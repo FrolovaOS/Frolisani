@@ -17,10 +17,13 @@ public class Note  implements Parcelable{
     @ColumnInfo(name = "text")
     public String text;
 
+    @ColumnInfo(name = "timestamp")
+    public long timestamp;
+
     public Note(Parcel in) {
         uid = in.readInt();
         text = in.readString();
-
+        timestamp = in.readLong();
     }
     public Note() {
 
@@ -33,6 +36,7 @@ public class Note  implements Parcelable{
 
         Note note = (Note) o;
         if (uid != note.uid) return false;
+        if (timestamp != note.timestamp) return false;
         return text != null ? text.equals(note.text) : note.text == null;
     }
 
@@ -40,6 +44,7 @@ public class Note  implements Parcelable{
     public int hashCode() {
         int result = uid;
         result = 31 * result + (text != null ? text.hashCode() : 0);
+        result = 31 * result + (int) (timestamp ^ (timestamp >>> 32));
          return result;
     }
 
@@ -52,7 +57,7 @@ public class Note  implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(uid);
         dest.writeString(text);
-
+        dest.writeLong(timestamp);
     }
     public static final Creator<Note> CREATOR = new Creator<Note>() {
         @Override

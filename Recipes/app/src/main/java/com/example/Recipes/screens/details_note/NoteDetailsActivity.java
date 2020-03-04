@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
 
-import com.example.Recipes.App;
+import com.example.Recipes.screens.MainActivity;
 import com.example.Recipes.R;
 import com.example.Recipes.model_note.Note;
 
@@ -68,11 +68,11 @@ public class NoteDetailsActivity  extends AppCompatActivity {
             case R.id.action_save:
                 if (editText.getText().length() > 0) {
                     note.text = editText.getText().toString();
-
+                    note.timestamp = System.currentTimeMillis();
                     if (getIntent().hasExtra(EXTRA_NOTE)) {
-                        App.getInstance().getNoteDao().update(note);
+                        MainActivity.getInstance().getNoteDao().update(note);
                     } else {
-                        App.getInstance().getNoteDao().insert(note);
+                        MainActivity.getInstance().getNoteDao().insert(note);
                     }
                     finish();
                 }

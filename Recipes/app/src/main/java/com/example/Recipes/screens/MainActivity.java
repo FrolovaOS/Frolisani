@@ -5,14 +5,43 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+
+import android.app.Application;
+
+import androidx.room.Room;
+
+
+import com.example.Recipes.App;
 import com.example.Recipes.R;
+import com.example.Recipes.data_note.NoteDao;
+import com.example.Recipes.data_note.NoteDataBase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     ImageButton AddRecipes,Home,Search,Notes;
+
+    private NoteDataBase database;
+    private NoteDao noteDao;
+    private static MainActivity instance;
+
+    public static MainActivity getInstance() {
+        return instance;
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        instance = this;
+
+        database = Room.databaseBuilder(getApplicationContext(),
+                NoteDataBase.class, "app-db-name").addMigrations(NoteDataBase.MIGRATION_1_2)
+                .allowMainThreadQueries()
+                .build();
+
+        noteDao = database.noteDao();
+
 
         AddRecipes = (ImageButton) findViewById(R.id.AddRecipes);
         AddRecipes.setOnClickListener(this);
@@ -24,6 +53,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Notes.setOnClickListener(this);
 
         }
+
+
+    public NoteDataBase getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(NoteDataBase database) {
+        this.database = database;
+    }
+
+    public NoteDao getNoteDao() {
+        return noteDao;
+    }
+
+    public void setNoteDao(NoteDao noteDao) {
+        this.noteDao = noteDao;
+    }
+
 
 
     @Override

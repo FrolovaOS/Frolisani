@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.SortedList;
 import com.example.Recipes.App;
 import com.example.Recipes.R;
 import com.example.Recipes.model_note.Note;
+import com.example.Recipes.screens.MainActivity;
 import com.example.Recipes.screens.details_note.NoteDetailsActivity;
 
 import java.util.List;
@@ -25,7 +26,46 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NoteViewHolder> {
     private SortedList<Note> sortedList;
 
     public Adapter() {
+        sortedList = new SortedList<>(Note.class, new SortedList.Callback<Note>()
+        {
 
+
+            @Override
+            public void onInserted(int position, int count) {
+                notifyItemRangeInserted(position, count);
+            }
+
+            @Override
+            public void onRemoved(int position, int count) {
+                notifyItemRangeRemoved(position, count);
+            }
+
+            @Override
+            public void onMoved(int fromPosition, int toPosition) {
+                notifyItemMoved(fromPosition, toPosition);
+            }
+
+            @Override
+            public int compare(Note o1, Note o2) {
+
+                return (int) (o2.timestamp - o1.timestamp);
+            }
+
+            @Override
+            public void onChanged(int position, int count) {
+                notifyItemRangeChanged(position, count);
+            }
+
+            @Override
+            public boolean areContentsTheSame(Note oldItem, Note newItem) {
+                return oldItem.equals(newItem);
+            }
+
+            @Override
+            public boolean areItemsTheSame(Note item1, Note item2) {
+                return item1.uid == item2.uid;
+            }
+        });
 
     }
 
@@ -74,7 +114,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NoteViewHolder> {
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    App.getInstance().getNoteDao().delete(note);
+                    MainActivity.getInstance().getNoteDao().delete(note);
                 }
             });
 
