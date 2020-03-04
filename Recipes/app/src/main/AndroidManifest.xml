@@ -27,7 +27,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.Recipes.screens.home" />
-        <activity android:name=".screens.details_note.NoteDetailsActivity" />
+        <activity android:name=".screens.details_note.NoteDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
