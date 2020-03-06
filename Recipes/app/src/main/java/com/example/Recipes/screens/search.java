@@ -1,7 +1,9 @@
-package com.example.Recipes;
+package com.example.Recipes.screens;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.Recipes.R;
 
 public class search extends AppCompatActivity {
 
