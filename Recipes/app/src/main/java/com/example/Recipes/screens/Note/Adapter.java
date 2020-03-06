@@ -2,18 +2,15 @@ package com.example.Recipes.screens.Note;
 
 import android.app.Activity;
 
-import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SortedList;
 
-import com.example.Recipes.App;
 import com.example.Recipes.R;
 import com.example.Recipes.model_note.Note;
 import com.example.Recipes.screens.MainActivity;
