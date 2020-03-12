@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Recipes</string>
+    <string name="title_activity_main_note">Список покупок</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="next">Next</string>
+    <string name="note_text">Что купить?</string>
+    <string name="previous">Previous</string>
+    <string name="save">Сохранить</string>
+
+    <string name="note_details_title">Заметка</string>
+
 </resources>

@@ -5,103 +5,136 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:background="#02FFFFFF">
+
     <View
         android:id="@+id/view4"
-        android:layout_width="359dp"
-        android:layout_height="540dp"
-        android:background="@drawable/cook3"
-        android:translationX="0dp"
-        android:translationY="100dp"
-        tools:ignore="ContentDescription,MissingConstraints"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F8E7CE"
+        android:foreground="@drawable/poi12"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
     <ImageButton
         android:id="@+id/Favorite"
         android:layout_width="87dp"
         android:layout_height="83dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="60dp"
+
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="65dp"
         android:background="#05FFFFFF"
         android:padding="1dp"
         android:scaleType="fitXY"
         android:src="@drawable/star_favorites"
-        android:translationX="220dp"
-        android:translationY="220dp"
         android:visibility="visible"
-        tools:ignore="ContentDescription,MissingConstraints"
-        />
-
+        app:layout_constraintBottom_toTopOf="@+id/Notes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/Fridg"
+        app:layout_constraintTop_toTopOf="@+id/view4"
+        tools:ignore="ContentDescription,MissingConstraints" />
 
 
     <ImageButton
         android:id="@+id/Notes"
         android:layout_width="87dp"
         android:layout_height="83dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="170dp"
         android:background="#05FFFFFF"
         android:padding="5dp"
         android:scaleType="fitXY"
-        android:src="@drawable/notes10"
-        android:translationX="220dp"
-        android:translationY="400dp"
+        android:src="@drawable/hotpng_com"
         android:visibility="visible"
-        tools:ignore="ContentDescription,MissingConstraints"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/view4"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/Search"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageButton
         android:id="@+id/Fridg"
+        style="@android:style/Widget.ImageButton"
         android:layout_width="87dp"
         android:layout_height="83dp"
-        android:background="#05FFFFFF"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="65dp"
+        android:adjustViewBounds="false"
+        android:background="#05E09AF3"
+        android:baselineAlignBottom="false"
+        android:bottomLeftRadius="12.0dip"
+        android:bottomRightRadius="12.0dip"
         android:padding="8dp"
         android:paddingLeft="250dp"
         android:paddingTop="150dp"
         android:paddingRight="250dp"
         android:paddingBottom="150dp"
+        android:radius="12.0dip"
         android:scaleType="fitXY"
-        android:src="@drawable/kisspng_drawing_refrigerator_kitchen_painting_refigerator_5b2488610ffa00_5412211615291208650655"
-        android:translationX="80dp"
-        android:translationY="220dp"
-        tools:ignore="ContentDescription,MissingConstraints"
-        android:visibility="visible" />
-
-    <ImageView
-        android:id="@+id/log"
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:background="#05FFFFFF"
-        android:translationX="0dp"
-        android:translationY="0dp"
-        app:srcCompat="@drawable/kju2"
+        android:shape="ring"
+        android:src="@drawable/kisspng_refrigerator_freezers_computer_icons_kitchen_cabin_cartoon_fridge_5b37c75869fe52_8350606415303821684342"
+        android:tint="#090909"
+        android:topLeftRadius="12.0dip"
+        android:topRightRadius="12.0dip"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/Search"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageButton
         android:id="@+id/Search"
         android:layout_width="87dp"
         android:layout_height="83dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginBottom="170dp"
         android:background="#05FFFFFF"
         android:padding="8dp"
         android:paddingLeft="250dp"
+
         android:paddingTop="150dp"
         android:paddingRight="250dp"
         android:paddingBottom="150dp"
         android:scaleType="fitXY"
         android:src="@drawable/search2"
-        android:translationX="80dp"
-        android:translationY="400dp"
         android:visibility="visible"
-        tools:ignore="ContentDescription,MissingConstraints"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageButton
         android:id="@+id/Back"
         android:layout_width="87dp"
         android:layout_height="83dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
         android:background="#05FFFFFF"
         android:padding="1dp"
         android:scaleType="fitXY"
         android:src="@drawable/monotone_arrow_left_small"
-        android:translationX="140dp"
-        android:translationY="500dp"
         android:visibility="visible"
-        tools:ignore="ContentDescription,MissingConstraints"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toBottomOf="@+id/Notes"
+        tools:ignore="ContentDescription,MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

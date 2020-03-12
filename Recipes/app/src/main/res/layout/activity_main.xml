@@ -4,69 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context="com.example.Recipes.screens.MainActivity"
 
     tools:ignore="ExtraText">
 
 
     <View
         android:id="@+id/view"
-        android:layout_width="359dp"
-        android:layout_height="540dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/cook3"
-        android:translationX="0dp"
-        android:translationY="100dp"
-        tools:ignore="MissingConstraints"/>
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:textSize="24sp"
-        android:translationX="140dp"
-        android:translationY="100dp"
-        android:visibility="visible"
-        tools:ignore="ContentDescription,MissingConstraints"
-        tools:text="" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
 
     <ImageButton
         android:id="@+id/AddRecipes"
         android:layout_width="87dp"
         android:layout_height="83dp"
-        android:padding="12dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="40dp"
         android:background="#05FFFFFF"
-        android:paddingLeft="250dp"
+        android:padding="3dp"
+        android:paddingLeft="300dp"
         android:paddingTop="150dp"
         android:paddingRight="250dp"
         android:paddingBottom="150dp"
         android:scaleType="fitXY"
-        android:translationX="210dp"
-        android:translationY="500dp"
         android:visibility="visible"
-        app:srcCompat="@drawable/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Home"
+        app:srcCompat="@drawable/add3"
         tools:ignore="ContentDescription,MissingConstraints"
-        tools:srcCompat="@drawable/add" />
+        tools:srcCompat="@drawable/add3" />
 
     <ImageButton
         android:id="@+id/Home"
         android:layout_width="87dp"
         android:layout_height="83dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="40dp"
         android:background="#05FFFFFF"
         android:padding="10dp"
         android:scaleType="fitXY"
-        android:translationX="300dp"
-        android:translationY="500dp"
         android:visibility="visible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
         app:srcCompat="@drawable/house"
         tools:ignore="ContentDescription,MissingConstraints"
-        tools:srcCompat="@drawable/house"
-
-    />
+        tools:srcCompat="@drawable/house" />
 
     <ImageButton
         android:id="@+id/Search"
         android:layout_width="87dp"
         android:layout_height="83dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="40dp"
         android:background="#05FFFFFF"
         android:padding="8dp"
         android:paddingLeft="250dp"
@@ -74,9 +72,10 @@
         android:paddingRight="250dp"
         android:paddingBottom="150dp"
         android:scaleType="fitXY"
-        android:translationX="40dp"
-        android:translationY="500dp"
         android:visibility="visible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view"
         app:srcCompat="@drawable/search2"
         tools:ignore="ContentDescription,MissingConstraints"
         tools:srcCompat="@drawable/search2" />
@@ -85,26 +84,32 @@
         android:id="@+id/Notes"
         android:layout_width="87dp"
         android:layout_height="83dp"
+
+        android:layout_marginBottom="40dp"
         android:background="#05FFFFFF"
+
         android:padding="10dp"
+
         android:scaleType="fitXY"
-        android:translationX="115dp"
-        android:translationY="500dp"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/AddRecipes"
+        app:layout_constraintStart_toEndOf="@+id/Search"
+        app:srcCompat="@drawable/hotpng_com"
         tools:ignore="ContentDescription,MissingConstraints"
-        tools:srcCompat="@drawable/notes10"
-        app:srcCompat="@drawable/notes10"
-         />
+        tools:srcCompat="@drawable/hotpng_com" />
 
     <ImageView
         android:id="@+id/log"
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="#05FFFFFF"
-        app:srcCompat="@drawable/kju2"
-        tools:ignore="ContentDescription,MissingConstraints"
-        android:translationX="0dp"
-        android:translationY="0dp" /><![CDATA[
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/log3"
+        tools:ignore="ContentDescription,MissingConstraints" /><![CDATA[
+
+
 
 
 
@@ -117,6 +122,7 @@
 
 
     />
+
 
 
 
