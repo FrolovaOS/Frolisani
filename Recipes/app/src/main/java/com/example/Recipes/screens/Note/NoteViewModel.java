@@ -3,7 +3,6 @@ package com.example.Recipes.screens.Note;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.Recipes.App;
 import com.example.Recipes.model_note.Note;
 import com.example.Recipes.screens.MainActivity;
 

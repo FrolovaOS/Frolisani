@@ -31,11 +31,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_margin="25dp"
         android:background="#08FFFFFF"
+        android:padding="1dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="0dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="0dp"
         app:backgroundTint="#9F536F"
-        app:borderWidth="1dp"
+        app:borderWidth="6dp"
+        app:fabCustomSize="70dp"
         app:fabSize="auto"
-        app:srcCompat="@drawable/add" />
+        app:maxImageSize="30dp"
+        app:pressedTranslationZ="8dp"
+        app:srcCompat="@drawable/add3"
+        app:useCompatPadding="true" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
