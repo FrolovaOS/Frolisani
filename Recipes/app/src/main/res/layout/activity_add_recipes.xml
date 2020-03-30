@@ -6,4 +6,32 @@
     android:layout_height="match_parent"
     tools:context="com.example.Recipes.screens.AddRecipes">
 
+
+    <ImageButton
+        android:id="@+id/Add"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="340dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginBottom="5dp"
+        android:background="#05FFFFFF"
+        android:padding="3dp"
+        android:paddingLeft="280dp"
+        android:paddingTop="140dp"
+        android:paddingRight="240dp"
+        android:paddingBottom="140dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/add3" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,6 +44,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:lineSpacingExtra="8sp"
                     android:text="Для того, чтобы гусь получился более ароматным и нежным, мариновать его нужно не менее 2 суток.
 
 В среднем на приготовление 1кг птицы уходит 60 минут. Чем больше гусь, тем дольше он запекается.
@@ -62,7 +63,8 @@
 
 Самый простой способ, положить гуся в рукав для запекания: и переворачивать удобнее и жир будет оставаться внутри, не растекаясь по форме для запекания. Но, также можно завернуть тушку и в фольгу и в пергамент, а если у вас есть большая гусятница, то запекать в ней.
 
-" />
+"
+                    android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
 
@@ -82,15 +84,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Сложность : 10 из 10" />
+                    android:text="Сложность : 10 из 10"
+                    android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/Time"
+                    android:id="@+id/Time1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Фактическое время хзхзхз, подготовка дофига и больше" />
+                    android:text="Фактическое время хзхзхз, подготовка дофига и больше"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/Food"
@@ -105,7 +109,8 @@
         50 мл оливкового масла;
         3 крупных кислых яблока;
         ½ лимона;
-        2 столовые ложки мёда." />
+        2 столовые ложки мёда."
+                    android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
 

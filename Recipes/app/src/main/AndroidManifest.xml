@@ -17,6 +17,7 @@
         <activity android:name="com.example.Recipes.screens.Favorite" />
         <activity android:name="com.example.Recipes.screens.Fridg" />
         <activity android:name="com.example.Recipes.screens.Recipes" />
+        <activity android:name="com.example.Recipes.screens.Add_Form_Recipes" />
 
         <activity android:name="com.example.Recipes.screens.AddRecipes" />
         <activity android:name="com.example.Recipes.screens.search" />
