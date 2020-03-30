@@ -21,6 +21,7 @@
         android:gravity="top"
         android:hint="@string/note_text"
         android:minHeight="200dp"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:textSize="18sp" />
 
 </LinearLayout>

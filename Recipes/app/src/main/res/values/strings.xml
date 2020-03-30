@@ -7,7 +7,15 @@
     <string name="note_text">Что купить?</string>
     <string name="previous">Previous</string>
     <string name="save">Сохранить</string>
-
+    <string-array name="Levels">
+        <item>Выберите сложность</item>
+        <item>Элементарно</item>
+        <item>Легко</item>
+        <item>Нормально</item>
+        <item>Муторно</item>
+        <item>Сложно</item>
+        <item>Очень сложно!</item>
+    </string-array>
     <string name="note_details_title">Заметка</string>
 
 </resources>
