@@ -39,8 +39,8 @@ public class AddRecipes extends AppCompatActivity implements View.OnClickListene
         final Adapter adapter = new Adapter();
         recyclerView1.setAdapter(adapter);
 
-        RepViewModel mainViewModel = ViewModelProviders.of(this).get(RepViewModel.class);
-        mainViewModel.getRepLiveData().observe(this, new Observer<List<Own_Recipes>>() {
+        RepViewModel mainViewModel1 = ViewModelProviders.of(this).get(RepViewModel.class);
+        mainViewModel1.getRepLiveData().observe(this, new Observer<List<Own_Recipes>>() {
             @Override
             public void onChanged(List<Own_Recipes> recipes) {
                 adapter.setItems(recipes);

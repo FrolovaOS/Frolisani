@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return databaseRecipes;
     }
 
-    public void setDatabaseRep(RecipesDataBase database) {
+    public void setDatabaseRep(RecipesDataBase databaseRecipes) {
         this.databaseRecipes = databaseRecipes;
     }
 
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return recipesDao;
     }
 
-    public void setRepDao(NoteDao noteDao) {
+    public void setRepDao(RecipesDao recipesDao) {
         this.recipesDao = recipesDao;
     }
 

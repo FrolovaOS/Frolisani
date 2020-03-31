@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
     package="com.example.Recipes">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -18,9 +19,11 @@
         <activity android:name="com.example.Recipes.screens.Fridg" />
         <activity android:name="com.example.Recipes.screens.Recipes" />
         <activity android:name="com.example.Recipes.screens.OwnRecipes.Add_Form_Recipes" />
-
+        <activity android:name="com.example.Recipes.model_Adding_Recipes.Own_Recipes" />
         <activity android:name="com.example.Recipes.screens.OwnRecipes.AddRecipes" />
         <activity android:name="com.example.Recipes.screens.search" />
+        <activity android:name="com.example.Recipes.screens.OwnRecipes.RecipesView" />
+
         <activity android:name="com.example.Recipes.screens.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
