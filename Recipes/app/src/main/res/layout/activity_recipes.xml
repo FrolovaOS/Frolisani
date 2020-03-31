@@ -10,17 +10,30 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="220dp"
+        android:adjustViewBounds="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/log3" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="220dp"
+        android:hint="Название"
+        android:textColor="#050202"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="250dp"
         android:layout_marginBottom="20dp"
         android:background="#00FFFFFF"
         android:orientation="horizontal"
@@ -44,6 +57,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:lineSpacingExtra="8sp"
                     android:text="Для того, чтобы гусь получился более ароматным и нежным, мариновать его нужно не менее 2 суток.
 
 В среднем на приготовление 1кг птицы уходит 60 минут. Чем больше гусь, тем дольше он запекается.
@@ -62,7 +76,8 @@
 
 Самый простой способ, положить гуся в рукав для запекания: и переворачивать удобнее и жир будет оставаться внутри, не растекаясь по форме для запекания. Но, также можно завернуть тушку и в фольгу и в пергамент, а если у вас есть большая гусятница, то запекать в ней.
 
-" />
+"
+                    android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
 
@@ -82,15 +97,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Сложность : 10 из 10" />
+                    android:text="Сложность : 10 из 10"
+                    android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/Time"
+                    android:id="@+id/Time1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Фактическое время хзхзхз, подготовка дофига и больше" />
+                    android:text="Фактическое время хзхзхз, подготовка дофига и больше"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/Food"
@@ -105,9 +122,11 @@
         50 мл оливкового масла;
         3 крупных кислых яблока;
         ½ лимона;
-        2 столовые ложки мёда." />
+        2 столовые ложки мёда."
+                    android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

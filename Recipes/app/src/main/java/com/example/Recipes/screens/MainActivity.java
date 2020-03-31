@@ -12,6 +12,8 @@ import androidx.room.Room;
 import com.example.Recipes.R;
 import com.example.Recipes.data_note.NoteDao;
 import com.example.Recipes.data_note.NoteDataBase;
+import com.example.Recipes.data_own_recipes.RecipesDao;
+import com.example.Recipes.data_own_recipes.RecipesDataBase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     ImageButton AddRecipes,Home,Search,Notes;
@@ -20,8 +22,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private NoteDao noteDao;
     private static MainActivity instance;
 
+    private RecipesDataBase databaseRecipes;
+    private RecipesDao recipesDao;
+    private static MainActivity instanceRep;
+
     public static MainActivity getInstance() {
         return instance;
+    }
+
+    public static MainActivity getInstanceRep() {
+        return instanceRep;
     }
 
 
@@ -31,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         instance = this;
+        instanceRep = this;
 
         database = Room.databaseBuilder(getApplicationContext(),
                 NoteDataBase.class, "app-db-name").addMigrations(NoteDataBase.MIGRATION_1_2)
@@ -38,6 +49,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .build();
 
         noteDao = database.noteDao();
+
+        databaseRecipes = Room.databaseBuilder(getApplicationContext(),
+                RecipesDataBase.class, "app-db-rep")
+                .allowMainThreadQueries()
+                .build();
+
+        recipesDao = databaseRecipes.recipesDao();
 
 
         AddRecipes = (ImageButton) findViewById(R.id.AddRecipes);
@@ -70,12 +88,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+    public RecipesDataBase getDatabaseRep() {
+        return databaseRecipes;
+    }
+
+    public void setDatabaseRep(RecipesDataBase databaseRecipes) {
+        this.databaseRecipes = databaseRecipes;
+    }
+
+    public RecipesDao getRepDao() {
+        return recipesDao;
+    }
+
+    public void setRepDao(RecipesDao recipesDao) {
+        this.recipesDao = recipesDao;
+    }
+
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId())
         {
             case R.id.AddRecipes:
-                Intent intent = new Intent(MainActivity.this, com.example.Recipes.screens.AddRecipes.class);
+                Intent intent = new Intent(MainActivity.this, com.example.Recipes.screens.OwnRecipes.AddRecipes.class);
                 startActivity(intent);
                 break;
             case R.id.Notes:
