@@ -10,17 +10,30 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="220dp"
+        android:adjustViewBounds="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/log3" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="220dp"
+        android:hint="Название"
+        android:textColor="#050202"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="250dp"
         android:layout_marginBottom="20dp"
         android:background="#00FFFFFF"
         android:orientation="horizontal"
@@ -115,4 +128,5 @@
         </ScrollView>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
