@@ -111,7 +111,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NoteViewHolder> {
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    MainActivity.getInstance().getNoteDao().delete(note);
+                    MainActivity.getInstance().getAppDao().delete(note);
                 }
             });
 

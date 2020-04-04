@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="com.example.Recipes">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="Android.permission.MANAGE_DOCUMENTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="Android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +17,7 @@
             android:label="@string/title_activity_main_note"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name="com.example.Recipes.screens.Favorite" />
+
         <activity android:name="com.example.Recipes.screens.Fridg" />
         <activity android:name="com.example.Recipes.screens.Recipes" />
         <activity android:name="com.example.Recipes.screens.OwnRecipes.Add_Form_Recipes" />

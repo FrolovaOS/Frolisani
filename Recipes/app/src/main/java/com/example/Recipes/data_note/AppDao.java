@@ -1,5 +1,6 @@
 package com.example.Recipes.data_note;
 
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -14,7 +15,8 @@ import com.example.Recipes.model_note.Note;
 import java.util.List;
 
 @Dao
-public interface NoteDao {
+public interface AppDao {
+
     @Query("SELECT * FROM Note")
     List<Note> getAll();
 
@@ -57,3 +59,4 @@ public interface NoteDao {
     @Delete
     void deleteR(Own_Recipes rep);
 }
+
