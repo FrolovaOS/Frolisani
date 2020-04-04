@@ -6,15 +6,9 @@ import android.view.View;
 import android.widget.ImageButton;
 
 
-import androidx.room.Room;
-
-
 import com.example.Recipes.R;
 import com.example.Recipes.data_note.AppDao;
-import com.example.Recipes.data_note.NoteDao;
 import com.example.Recipes.data_note.NoteDataBase;
-import com.example.Recipes.data_own_recipes.RecipesDao;
-import com.example.Recipes.data_own_recipes.RecipesDataBase;
 
 import static com.example.Recipes.data_note.NoteDataBase.getDatabase;
 

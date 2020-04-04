@@ -67,12 +67,5 @@ public class RecipesView extends AppCompatActivity {
         }
     }
 
-    // convert from byte array to bitmap
 
-        public static Bitmap bytesToBitmap(byte[] data) {
-            if (data == null) {
-                return null;
-            }
-            return BitmapFactory.decodeByteArray(data, 0, data.length);
-        }
-    }
+}

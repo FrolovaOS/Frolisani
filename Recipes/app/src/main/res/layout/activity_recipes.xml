@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,9 +21,10 @@
         android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginLeft="165dp"
         android:layout_marginTop="220dp"
+        android:ellipsize="middle"
         android:hint="Название"
         android:textColor="#050202"
         android:textSize="18sp"
@@ -84,7 +85,7 @@
 
         <ScrollView
             android:layout_width="150dp"
-            android:layout_height="380dp"
+            android:layout_height="match_parent"
             android:layout_weight="1">
 
             <LinearLayout
@@ -113,7 +114,7 @@
                 <TextView
                     android:id="@+id/Food"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="гусь весом 2–3 кг;
         3 чайные ложки соли;
