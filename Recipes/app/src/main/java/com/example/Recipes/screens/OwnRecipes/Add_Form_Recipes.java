@@ -43,15 +43,10 @@ public class Add_Form_Recipes extends AppCompatActivity implements View.OnClickL
     EditText Time, Name, Instruction, Products;
     Spinner Level;
     Button AddPhoto, Save;
-    Image image;
     String path = "";
-    Uri imagepath;
     String folderToSave = Environment.getExternalStorageDirectory().toString();
-   // String folderToSave= getExternalCacheDir().toString();
-    byte[] screen123;
     Bitmap bitmap = null;
 
-    ////////
     public static final String EXTRA_REP = "Add_Form_Recipes.EXTRA_REP";
     public Own_Recipes rep;
 
@@ -71,7 +66,6 @@ public class Add_Form_Recipes extends AppCompatActivity implements View.OnClickL
         caller.startActivity(intent);
     }
 
-    //////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,9 +90,7 @@ public class Add_Form_Recipes extends AppCompatActivity implements View.OnClickL
             if (rep.time != "Не указано") Time.setText(rep.time);
             if (rep.instruction != "Не указано") Instruction.setText(rep.instruction);
             if (rep.products != "Не указано") Products.setText(rep.products);
-            //  if(rep.screen != null) screen=rep.screen;
 
-            //придумать что-ниудь чтобы сохранить адаптер
         } else {
             rep = new Own_Recipes();
         }
@@ -111,22 +103,14 @@ public class Add_Form_Recipes extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.AddPhoto:
-                //посмотрть добавление фоток через кнопку
-
-                // folderToSave = Environment.getExternalStorageDirectory().toString(); // папка куда сохранять, в данном случае - корень SD-карты
-
 
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
 
-
-                // screen = bitmapToBytes(bitmap);
                 break;
             case R.id.Save:
 
-                // Photo = bitmap;
-                /////
                 if (Name.getText().length() > 0) {
                     rep.name = Name.getText().toString();
                 } else rep.name = "Не указано";
@@ -161,7 +145,6 @@ public class Add_Form_Recipes extends AppCompatActivity implements View.OnClickL
                     MainActivity.getInstanceRep().getAppDao().insertR(rep);
                 }
                 finish();
-                //////////
                 break;
 
             default:
@@ -190,16 +173,6 @@ public class Add_Form_Recipes extends AppCompatActivity implements View.OnClickL
     }
 
 
-    public static void fileSave(InputStream is, FileOutputStream outputStream) {
-        int i;
-        try {
-            while ((i = is.read()) != -1) {
-                outputStream.write(i);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private String SavePicture(String folderToSave) throws IOException {

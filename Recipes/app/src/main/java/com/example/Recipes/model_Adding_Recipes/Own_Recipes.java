@@ -37,8 +37,6 @@ public class Own_Recipes   implements Parcelable {
     @ColumnInfo(name = "level")
     public String level;
 
-   //@ColumnInfo(typeAffinity = ColumnInfo.BLOB,name="screen")
-   // public byte[] screen;
    @ColumnInfo(name = "screen")
    public String screen;
 
