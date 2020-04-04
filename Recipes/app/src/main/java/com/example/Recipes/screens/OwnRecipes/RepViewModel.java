@@ -9,7 +9,7 @@ import com.example.Recipes.screens.MainActivity;
 import java.util.List;
 
 public class RepViewModel extends ViewModel {
-    private LiveData<List<Own_Recipes>> RepLiveData = MainActivity.getInstanceRep().getRepDao().getAllLiveData();
+    private LiveData<List<Own_Recipes>> RepLiveData = MainActivity.getInstance().getAppDao().getAllLiveDataR();
 
     public LiveData<List<Own_Recipes>> getRepLiveData() {
         return RepLiveData;

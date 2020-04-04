@@ -9,7 +9,7 @@ import com.example.Recipes.screens.MainActivity;
 import java.util.List;
 
 public class NoteViewModel extends ViewModel {
-    private LiveData<List<Note>> noteLiveData = MainActivity.getInstance().getNoteDao().getAllLiveData();
+    private LiveData<List<Note>> noteLiveData = MainActivity.getInstance().getAppDao().getAllLiveData();
 
     public LiveData<List<Note>> getNoteLiveData() {
         return noteLiveData;

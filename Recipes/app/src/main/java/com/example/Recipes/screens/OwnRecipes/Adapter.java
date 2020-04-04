@@ -102,13 +102,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.RepViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   Add_Form_Recipes.start1((Activity) itemView.getContext(), recipes);
+                   Add_Form_Recipes.start1((Activity) itemView.getContext(),recipes);
                 }
             });
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    MainActivity.getInstanceRep().getRepDao().delete(recipes);
+                    MainActivity.getInstanceRep().getAppDao().deleteR(recipes);
                 }
             });
             ///
