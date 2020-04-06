@@ -70,9 +70,14 @@ public class NoteDetailsActivity  extends AppCompatActivity {
                     note.text = editText.getText().toString();
                     note.timestamp = System.currentTimeMillis();
                     if (getIntent().hasExtra(EXTRA_NOTE)) {
-                        MainActivity.getInstance().getNoteDao().update(note);
+
+                        MainActivity.getInstance().getAppDao().update(note);
+
                     } else {
-                        MainActivity.getInstance().getNoteDao().insert(note);
+
+
+                        MainActivity.getInstance().getAppDao().insert(note);
+
                     }
                     finish();
                 }

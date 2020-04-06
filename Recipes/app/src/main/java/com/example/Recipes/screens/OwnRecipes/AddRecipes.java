@@ -14,8 +14,6 @@ import android.widget.ImageButton;
 
 import com.example.Recipes.R;
 import com.example.Recipes.model_Adding_Recipes.Own_Recipes;
-import com.example.Recipes.model_note.Note;
-import com.example.Recipes.screens.Note.NoteViewModel;
 
 import java.util.List;
 

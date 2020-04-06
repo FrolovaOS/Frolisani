@@ -37,9 +37,8 @@ public class Own_Recipes   implements Parcelable {
     @ColumnInfo(name = "level")
     public String level;
 
-
-    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
-    public byte[] screen;
+   @ColumnInfo(name = "screen")
+   public String screen;
 
 
 
@@ -51,7 +50,7 @@ public class Own_Recipes   implements Parcelable {
         instruction = in.readString();
         time = in.readString();
         level = in.readString();
-        if(screen!=null) in.readByteArray(screen);
+        screen = in.readString();
 
 
     }
@@ -84,7 +83,7 @@ public class Own_Recipes   implements Parcelable {
                 instruction.equals(that.instruction) &&
                 time.equals(that.time) &&
                 level.equals(that.level) &&
-                Arrays.equals(screen, that.screen);
+                screen.equals(that.screen);
     }
 
     @Override
@@ -101,20 +100,14 @@ public class Own_Recipes   implements Parcelable {
         dest.writeString(instruction);
         dest.writeString(time);
         dest.writeString(level);
-        dest.writeByteArray(screen);
+        dest.writeString(screen);
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public int hashCode() {
-        int result = Objects.hash(uid, timestamp, name, products, instruction, time, level);
-        result = 31 * result + Arrays.hashCode(screen);
-        return result;
+        return Objects.hash(uid, timestamp, name, products, instruction, time, level, screen);
     }
-
-
-
-
 }
 
