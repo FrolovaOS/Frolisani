@@ -10,6 +10,12 @@ import com.example.Recipes.R;
 import com.example.Recipes.data_note.AppDao;
 import com.example.Recipes.data_note.NoteDataBase;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import static com.example.Recipes.data_note.NoteDataBase.getDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -17,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private NoteDataBase database;
     private AppDao appDao;
-   // private RecipesDao recipesDao;
 
     private static MainActivity instance;
 private static MainActivity instanceRep;
@@ -34,13 +39,27 @@ private static MainActivity instanceRep;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        System.out.println("hihihihiihihihihihihihihiih");
+        System.out.println("hihihihiihihihihihihihihiih");
+        System.out.println("hihihihiihihihihihihihihiih");
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:postgresql://localhost:5432/app_frolisani",
+                    "postgres", "polina");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM app_recipes_kitchen");
+            while (rs.next()) {
+                System.out.println(rs.getLong(1) + ": " + rs.getString(2));
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         instance = this;
         instanceRep = this;
         database = getDatabase(getApplicationContext());
-      // database = getDatabase(getApplicationContext());
 
         appDao = database.appDao();
-        // recipesDao = database.recipesDao();
 
 
         AddRecipes = (ImageButton) findViewById(R.id.AddRecipes);
@@ -55,10 +74,6 @@ private static MainActivity instanceRep;
         }
 
 
-   // public NoteDataBase getDatabase(MainActivity mainActivity) {
-   //     return database;
-    //}
-
     public void setDatabase(NoteDataBase database) {
         this.database = database;
     }
@@ -71,14 +86,6 @@ private static MainActivity instanceRep;
         this.appDao = AppDao;
     }
 
-
-   // public RecipesDao getRepDao() {
-     //   return recipesDao;
-    //}
-
-    //public void setRepDao(RecipesDao recipesDao) {
-      //  this.recipesDao = recipesDao;
-    //}
 
 
     @Override
