@@ -46,7 +46,7 @@ private static MainActivity instanceRep;
             Class.forName("org.postgresql.Driver");
             Connection con = DriverManager.getConnection(
                     "jdbc:postgresql://localhost:5432/app_frolisani",
-                    "postgres", "polina");
+                    "postgres", "Veka37p12");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM app_recipes_kitchen");
             while (rs.next()) {

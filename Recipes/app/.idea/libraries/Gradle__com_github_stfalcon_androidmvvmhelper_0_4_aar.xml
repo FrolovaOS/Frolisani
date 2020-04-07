@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.stfalcon:androidmvvmhelper:0.4@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9dd05afe18199527231cf4ad93c06c43/jetified-androidmvvmhelper-0.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9dd05afe18199527231cf4ad93c06c43/jetified-androidmvvmhelper-0.4/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.stfalcon/androidmvvmhelper/0.4/7be0f1923322f49a0eea122809080ac356e3625e/androidmvvmhelper-0.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.stfalcon/androidmvvmhelper/0.4/1d3b0051de9f3b7a58f92e3b0e622973ea7a10ef/androidmvvmhelper-0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
