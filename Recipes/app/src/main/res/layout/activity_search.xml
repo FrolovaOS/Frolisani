@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E2FBC2B0"
     tools:context="com.example.Recipes.screens.search">
 
     <ScrollView
@@ -17,16 +18,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <SearchView
+            <EditText
+                android:id="@+id/Search"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="40dp"
+                android:hint="Введите рецепт" />
 
             <ImageButton
                 android:id="@+id/imageButton"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="250dp"
                 android:background="#05FFFFFF"
-                android:padding="12dp"
+                android:padding="0dp"
                 android:paddingLeft="250dp"
                 android:paddingTop="150dp"
                 android:paddingRight="250dp"
@@ -35,34 +38,56 @@
                 android:translationX="0dp"
                 android:translationY="0dp"
                 android:visibility="visible"
-                app:srcCompat="@drawable/add"
+                app:srcCompat="@drawable/bbb4"
                 tools:ignore="ContentDescription,MissingConstraints"
-                tools:srcCompat="@drawable/add" />
+                tools:srcCompat="@drawable/bbb4" />
+
+            <TextView
+                android:id="@+id/Kitchen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ellipsize="middle"
+                android:fontFamily="cursive"
+                android:gravity="center"
+                android:text="Тип кухни"
+                android:textSize="18sp" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="250dp"
                 android:background="#05FFFFFF"
-                android:padding="12dp"
+                android:padding="0dp"
                 android:paddingLeft="250dp"
                 android:paddingTop="150dp"
                 android:paddingRight="250dp"
-                android:paddingBottom="150dp"
+                android:paddingBottom="100dp"
                 android:scaleType="fitXY"
                 android:translationX="0dp"
                 android:translationY="0dp"
                 android:visibility="visible"
-                app:srcCompat="@drawable/add"
+                app:srcCompat="@drawable/veg1"
                 tools:ignore="ContentDescription,MissingConstraints"
-                tools:srcCompat="@drawable/add" />
+                tools:srcCompat="@drawable/veg1" />
+
+            <TextView
+                android:id="@+id/TypeoOfFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ellipsize="middle"
+                android:fontFamily="cursive"
+                android:gravity="center"
+                android:text="Тип питания"
+                android:textSize="18sp" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="250dp"
                 android:background="#05FFFFFF"
-                android:padding="12dp"
+                android:padding="0dp"
                 android:paddingLeft="250dp"
                 android:paddingTop="150dp"
                 android:paddingRight="250dp"
@@ -71,27 +96,63 @@
                 android:translationX="0dp"
                 android:translationY="0dp"
                 android:visibility="visible"
-                app:srcCompat="@drawable/add"
+                app:srcCompat="@drawable/ff5"
                 tools:ignore="ContentDescription,MissingConstraints"
-                tools:srcCompat="@drawable/add" />
+                tools:srcCompat="@drawable/ff5" />
+
+            <TextView
+                android:id="@+id/TypeOfRecipes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ellipsize="middle"
+                android:fontFamily="cursive"
+                android:gravity="center"
+                android:text="Тип блюда"
+                android:textSize="18sp" />
 
             <ImageButton
                 android:id="@+id/imageButton4"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:background="#05FFFFFF"
-                android:padding="12dp"
+                android:layout_height="250dp"
+                android:padding="0dp"
                 android:paddingLeft="250dp"
                 android:paddingTop="150dp"
                 android:paddingRight="250dp"
                 android:paddingBottom="150dp"
-                android:scaleType="fitXY"
-                android:translationX="0dp"
-                android:translationY="0dp"
-                android:visibility="visible"
-                app:srcCompat="@drawable/add"
-                tools:ignore="ContentDescription,MissingConstraints"
-                tools:srcCompat="@drawable/add" />
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/uecm1" />
+
+            <TextView
+                android:id="@+id/MainIngredient"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginBottom="10dp"
+                android:ellipsize="middle"
+                android:focusable="auto"
+                android:gravity="center"
+                android:text="Главный ингредиент"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:padding="0dp"
+                android:paddingLeft="250dp"
+                android:paddingTop="150dp"
+                android:paddingRight="250dp"
+                android:paddingBottom="150dp"
+                app:srcCompat="@drawable/fffvf1" />
+
+            <TextView
+                android:id="@+id/Drinks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Напитки"
+                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>

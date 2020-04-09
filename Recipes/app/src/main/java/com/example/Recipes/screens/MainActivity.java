@@ -1,6 +1,8 @@
 package com.example.Recipes.screens;
+import android.Manifest;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -10,6 +12,7 @@ import com.example.Recipes.R;
 import com.example.Recipes.data_note.AppDao;
 import com.example.Recipes.data_note.NoteDataBase;
 
+
 import static com.example.Recipes.data_note.NoteDataBase.getDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -17,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private NoteDataBase database;
     private AppDao appDao;
-   // private RecipesDao recipesDao;
 
     private static MainActivity instance;
 private static MainActivity instanceRep;
@@ -34,13 +36,12 @@ private static MainActivity instanceRep;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         instance = this;
         instanceRep = this;
         database = getDatabase(getApplicationContext());
-      // database = getDatabase(getApplicationContext());
 
         appDao = database.appDao();
-        // recipesDao = database.recipesDao();
 
 
         AddRecipes = (ImageButton) findViewById(R.id.AddRecipes);
@@ -55,10 +56,6 @@ private static MainActivity instanceRep;
         }
 
 
-   // public NoteDataBase getDatabase(MainActivity mainActivity) {
-   //     return database;
-    //}
-
     public void setDatabase(NoteDataBase database) {
         this.database = database;
     }
@@ -71,14 +68,6 @@ private static MainActivity instanceRep;
         this.appDao = AppDao;
     }
 
-
-   // public RecipesDao getRepDao() {
-     //   return recipesDao;
-    //}
-
-    //public void setRepDao(RecipesDao recipesDao) {
-      //  this.recipesDao = recipesDao;
-    //}
 
 
     @Override
