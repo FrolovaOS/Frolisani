@@ -1,6 +1,8 @@
 package com.example.Recipes.screens;
+import android.Manifest;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -10,11 +12,6 @@ import com.example.Recipes.R;
 import com.example.Recipes.data_note.AppDao;
 import com.example.Recipes.data_note.NoteDataBase;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 import static com.example.Recipes.data_note.NoteDataBase.getDatabase;
 
@@ -39,22 +36,7 @@ private static MainActivity instanceRep;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        System.out.println("hihihihiihihihihihihihihiih");
-        System.out.println("hihihihiihihihihihihihihiih");
-        System.out.println("hihihihiihihihihihihihihiih");
-        try {
-            Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/app_frolisani",
-                    "postgres", "Veka37p12");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM app_recipes_kitchen");
-            while (rs.next()) {
-                System.out.println(rs.getLong(1) + ": " + rs.getString(2));
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
         instance = this;
         instanceRep = this;
         database = getDatabase(getApplicationContext());
