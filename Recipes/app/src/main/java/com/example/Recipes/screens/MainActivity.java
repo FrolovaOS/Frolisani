@@ -3,6 +3,8 @@ import android.Manifest;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -13,6 +15,8 @@ import com.example.Recipes.data_note.AppDao;
 import com.example.Recipes.data_note.NoteDataBase;
 
 
+import java.io.IOException;
+
 import static com.example.Recipes.data_note.NoteDataBase.getDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -20,9 +24,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private NoteDataBase database;
     private AppDao appDao;
+    private DatabaseHelper mDBHelper;
+    private SQLiteDatabase mDb;
 
     private static MainActivity instance;
-private static MainActivity instanceRep;
+    private static MainActivity instanceRep;
 
     public static MainActivity getInstance() {
         return instance;
@@ -36,6 +42,20 @@ private static MainActivity instanceRep;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mDBHelper = new DatabaseHelper(this);
+
+        try {
+            mDBHelper.updateDataBase();
+        } catch (IOException mIOException) {
+            throw new Error("UnableToUpdateDatabase");
+        }
+
+        try {
+            mDb = mDBHelper.getWritableDatabase();
+            System.out.println("DataBase connected");
+        } catch (SQLException mSQLException) {
+            throw mSQLException;
+        }
 
         instance = this;
         instanceRep = this;
