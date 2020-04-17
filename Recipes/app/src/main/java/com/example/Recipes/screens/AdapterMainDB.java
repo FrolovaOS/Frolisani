@@ -87,8 +87,8 @@ public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVi
         {
             this.recp = rec;
             recipes.setText(rec.GetName());
-            Time.setText(rec.getTime());
-            Charecter.setText((rec.getCharacter()));
+            //Time.setText(rec.getTime());
+            //Charecter.setText((rec.getCharacter()));
         }
     }
 
