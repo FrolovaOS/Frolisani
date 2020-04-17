@@ -23,13 +23,15 @@ import com.example.Recipes.model_Adding_Recipes.Own_Recipes;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import static com.example.Recipes.screens.OwnRecipes.Add_Form_Recipes.EXTRA_REP;
+import static com.example.Recipes.screens.Recicler_search.EXTRA_RECIPE;
 
 public class RecipesView extends AppCompatActivity {
     ImageView Screen;
-    TextView Products,Level,Time,Name,Instruction;
+    TextView Products,Level,Time,Name,Instruction,Character;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     public Own_Recipes rep;
 
@@ -39,12 +41,15 @@ public class RecipesView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
 
+        ArrayList<String> recArray = new ArrayList<String>();
+
         Time = findViewById(R.id.Time1);
         Name = findViewById(R.id.Name);
         Instruction = findViewById(R.id.textView4);
         Products = findViewById(R.id.Food);
         Level = findViewById(R.id.Level);
         Screen = findViewById(R.id.imageView8);
+        Character = findViewById(R.id.character);
 
         if (getIntent().hasExtra(EXTRA_REP)) {
             rep = getIntent().getParcelableExtra(EXTRA_REP);
@@ -54,7 +59,7 @@ public class RecipesView extends AppCompatActivity {
             Products.setText(Objects.requireNonNull(rep).products);
             Level.setText(Objects.requireNonNull(rep).level);
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE },
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                     REQUEST_EXTERNAL_STORAGE);
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
@@ -63,8 +68,29 @@ public class RecipesView extends AppCompatActivity {
                 Bitmap bm = BitmapFactory.decodeFile(image.getAbsolutePath());
                 Screen.setImageBitmap(bm);
             }
-
         }
+
+            if (getIntent().hasExtra(EXTRA_RECIPE)) {
+                recArray = getIntent().getStringArrayListExtra(EXTRA_RECIPE);
+                Name.setText(recArray.get(0));
+                Character.setText(recArray.get(1));
+                Instruction.setText(recArray.get(2));
+                Products.setText(recArray.get(3));
+                Time.setText(recArray.get(4));
+                Level.setText(recArray.get(5));
+                //для фотки
+//                ActivityCompat.requestPermissions(this,
+//                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE },
+//                        REQUEST_EXTERNAL_STORAGE);
+//                if (ActivityCompat.checkSelfPermission(this,
+//                        Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+//                        PackageManager.PERMISSION_GRANTED) {
+//                    File image = new File(recArray.get(8));
+//                    Bitmap bm = BitmapFactory.decodeFile(image.getAbsolutePath());
+//                    Screen.setImageBitmap(bm);
+                }
+
+
     }
 
 

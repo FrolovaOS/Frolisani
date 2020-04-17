@@ -18,14 +18,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/Search"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:hint="Введите рецепт" />
 
             <ImageButton
-                android:id="@+id/kitchen"
+                android:id="@+id/alcoholic"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:background="#05FFFFFF"
@@ -38,23 +33,23 @@
                 android:translationX="0dp"
                 android:translationY="0dp"
                 android:visibility="visible"
-                app:srcCompat="@drawable/bbb4"
+                app:srcCompat="@drawable/alco"
                 tools:ignore="ContentDescription,MissingConstraints"
-                tools:srcCompat="@drawable/bbb4" />
+                tools:srcCompat="@drawable/alco" />
 
             <TextView
-                android:id="@+id/Kitchen"
+                android:id="@+id/Alcoholic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:ellipsize="middle"
                 android:fontFamily="cursive"
                 android:gravity="center"
-                android:text="Тип кухни"
+                android:text="Алкогольные напитки"
                 android:textSize="18sp" />
 
             <ImageButton
-                android:id="@+id/type_of_food"
+                android:id="@+id/non_alcoholic"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:background="#05FFFFFF"
@@ -67,23 +62,23 @@
                 android:translationX="0dp"
                 android:translationY="0dp"
                 android:visibility="visible"
-                app:srcCompat="@drawable/veg1"
+                app:srcCompat="@drawable/nonalco2"
                 tools:ignore="ContentDescription,MissingConstraints"
-                tools:srcCompat="@drawable/veg1" />
+                tools:srcCompat="@drawable/nonalco2" />
 
             <TextView
-                android:id="@+id/TypeoOfFood"
+                android:id="@+id/Non_alcoholic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:ellipsize="middle"
                 android:fontFamily="cursive"
                 android:gravity="center"
-                android:text="Тип питания"
+                android:text="Безалкогольные напитки"
                 android:textSize="18sp" />
 
             <ImageButton
-                android:id="@+id/type_of_dish"
+                android:id="@+id/hot"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:background="#05FFFFFF"
@@ -96,63 +91,21 @@
                 android:translationX="0dp"
                 android:translationY="0dp"
                 android:visibility="visible"
-                app:srcCompat="@drawable/ff5"
+                app:srcCompat="@drawable/rjt1"
                 tools:ignore="ContentDescription,MissingConstraints"
-                tools:srcCompat="@drawable/ff5" />
+                tools:srcCompat="@drawable/rjt1" />
 
             <TextView
-                android:id="@+id/Type_of_dish"
+                android:id="@+id/Hot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:ellipsize="middle"
                 android:fontFamily="cursive"
                 android:gravity="center"
-                android:text="Тип блюда"
+                android:text="Горячие напитки"
                 android:textSize="18sp" />
 
-            <ImageButton
-                android:id="@+id/main_product"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:padding="0dp"
-                android:paddingLeft="250dp"
-                android:paddingTop="150dp"
-                android:paddingRight="250dp"
-                android:paddingBottom="150dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/uecm1" />
-
-            <TextView
-                android:id="@+id/Main_product"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_marginBottom="10dp"
-                android:ellipsize="middle"
-                android:focusable="auto"
-                android:gravity="center"
-                android:text="Главный ингредиент"
-                android:textSize="18sp" />
-
-            <ImageButton
-                android:id="@+id/drinks"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                android:padding="0dp"
-                android:paddingLeft="250dp"
-                android:paddingTop="150dp"
-                android:paddingRight="250dp"
-                android:paddingBottom="150dp"
-                app:srcCompat="@drawable/fffvf1" />
-
-            <TextView
-                android:id="@+id/Drinks"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Напитки"
-                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>
