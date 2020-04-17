@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E2FBC2B0"
+    tools:context="com.example.Recipes.screens.search">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/hot_dish"
+                    android:layout_width="200dp"
+                    android:layout_height="230dp"
+                    android:background="#05FFFFFF"
+                    android:padding="0dp"
+                    android:paddingLeft="250dp"
+                    android:paddingTop="150dp"
+                    android:paddingRight="250dp"
+                    android:paddingBottom="150dp"
+                    android:scaleType="fitXY"
+                    android:translationX="0dp"
+                    android:translationY="0dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/af11f"
+                    tools:ignore="ContentDescription,MissingConstraints"
+                    tools:srcCompat="@drawable/af11f" />
+
+                <ImageButton
+                    android:id="@+id/soup"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="#05FFFFFF"
+                    android:padding="0dp"
+                    android:paddingLeft="250dp"
+                    android:paddingTop="150dp"
+                    android:paddingRight="250dp"
+                    android:paddingBottom="100dp"
+                    android:scaleType="centerCrop"
+                    android:translationX="0dp"
+                    android:translationY="0dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/aaaaa1"
+                    tools:ignore="ContentDescription,MissingConstraints"
+                    tools:srcCompat="@drawable/aaaaa1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Hot_dish"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:ellipsize="middle"
+                    android:fontFamily="cursive"
+                    android:gravity="center"
+                    android:text="Основное блюдо"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/Soup"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:ellipsize="middle"
+                    android:fontFamily="cursive"
+                    android:gravity="center"
+                    android:text="Суп"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/salad"
+                    android:layout_width="200dp"
+                    android:layout_height="230dp"
+                    android:padding="0dp"
+                    android:paddingLeft="250dp"
+                    android:paddingTop="150dp"
+                    android:paddingRight="250dp"
+                    android:paddingBottom="150dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/aa11" />
+
+                <ImageButton
+                    android:id="@+id/bakery"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="#05FFFFFF"
+                    android:padding="0dp"
+                    android:paddingLeft="250dp"
+                    android:paddingTop="150dp"
+                    android:paddingRight="250dp"
+                    android:paddingBottom="150dp"
+                    android:scaleType="fitXY"
+                    android:translationX="0dp"
+                    android:translationY="0dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/aa1"
+                    tools:ignore="ContentDescription,MissingConstraints"
+                    tools:srcCompat="@drawable/aa1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Salad"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:ellipsize="middle"
+                    android:focusable="auto"
+                    android:gravity="center"
+                    android:text="Салат"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/Bakery"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:ellipsize="middle"
+                    android:fontFamily="cursive"
+                    android:gravity="center"
+                    android:text="Выпечка"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/dessert"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:padding="0dp"
+                    android:paddingLeft="250dp"
+                    android:paddingTop="150dp"
+                    android:paddingRight="250dp"
+                    android:paddingBottom="150dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/desert" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Dessert"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Десерт"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

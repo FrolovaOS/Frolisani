@@ -1,20 +1,24 @@
 package com.example.Recipes.screens;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.Recipes.Recipes_class;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 class DatabaseHelper extends SQLiteOpenHelper {
     private static String DB_NAME = "project_db.sqlite";
     private static String DB_PATH = "";
-    private static final int DB_VERSION = 3;
+    private static final int DB_VERSION = 6;
 
     private SQLiteDatabase mDataBase;
     private final Context mContext;
@@ -31,7 +35,9 @@ class DatabaseHelper extends SQLiteOpenHelper {
         copyDataBase();
 
         this.getReadableDatabase();
-    }
+
+        }
+
 
     public void updateDataBase() throws IOException {
         if (mNeedUpdate) {
@@ -97,4 +103,38 @@ class DatabaseHelper extends SQLiteOpenHelper {
         if (newVersion > oldVersion)
             mNeedUpdate = true;
     }
+
+    /////////////////////запросы
+    public ArrayList<Recipes_class> listRecipes(String _selectQuere,String[] _where) {
+        ArrayList<Recipes_class> recipes = new ArrayList<>();
+
+        //String selectQuery = "SELECT * FROM app_recipes";
+        String selectQuery = _selectQuere;
+        String[] Where = _where;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, Where);
+        int i = 0;
+        if (cursor.moveToFirst()) {
+            do {
+                Recipes_class recipe = new Recipes_class();
+                recipe.setId(cursor.getInt(0));
+                recipe.setName(cursor.getString(1));
+                recipe.setCharacter(cursor.getString(2));
+                recipe.setInstruction(cursor.getString(3));
+                recipe.setProduct(cursor.getString(4));
+                recipe.setFavorites(cursor.getInt(5));
+                recipe.setBlock(cursor.getInt(6));
+                recipe.setLevel(cursor.getString(7));
+                recipe.setTime(cursor.getString(8));
+                recipe.setPosition(i);
+                i++;
+                //recipe.setImage(cursor.getString(9));
+                recipes.add(recipe);
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        cursor.close();
+        return recipes;
+    }
+
 }
