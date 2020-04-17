@@ -17,7 +17,8 @@ public class type_of_food extends AppCompatActivity implements View.OnClickListe
     ImageButton Vegan,Sport,PP;
     ArrayList<String> request = new ArrayList<String>();
     String req ;
-    String data = "1";
+    String data1 = "1";
+    String data2 = "0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,30 +39,33 @@ public class type_of_food extends AppCompatActivity implements View.OnClickListe
         {
             case R.id.vegan:
                 Intent intent = new Intent(type_of_food.this, Recicler_search.class);
-                req ="SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE Veg =?);";
-                if((request.size()!= 1)&&(request.size()!= 0)) request.remove(1);
-                request.add(0,req);
-                request.add(1,data);
+                req ="SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE Veg =?) AND recipes_block =?;";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
 
                 intent.putStringArrayListExtra(EXTRA_REC3,request);
                 startActivity(intent);
                 break;
             case R.id.sport:
                 intent = new Intent(type_of_food.this, Recicler_search.class);
-                req ="SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE Sport =?);";
-                if((request.size()!= 1)&&(request.size()!= 0)) request.remove(1);
-                request.add(0,req);
-                request.add(1,data);
+                req ="SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE Sport =?) AND recipes_block =?;";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
 
                 intent.putStringArrayListExtra(EXTRA_REC3,request);
                 startActivity(intent);
                 break;
             case R.id.pp:
                 intent = new Intent(type_of_food.this, Recicler_search.class);
-                req ="SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE pp =?);"; //исправить по названию в бд
-                if((request.size()!= 1)&&(request.size()!= 0)) request.remove(1);
-                request.add(0,req);
-                request.add(1,data);
+                req ="SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE pp =?) AND recipes_block =?;"; //исправить по названию в бд
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
 
                 intent.putStringArrayListExtra(EXTRA_REC3,request);
                 startActivity(intent);

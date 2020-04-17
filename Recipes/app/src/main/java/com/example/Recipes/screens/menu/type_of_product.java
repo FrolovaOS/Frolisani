@@ -16,14 +16,14 @@ public class type_of_product extends AppCompatActivity implements View.OnClickLi
     public static final String EXTRA_REC4 = "kitchen.EXTRA_REC4";
     ImageButton Meat, Fish, Bird, Pasta, Potato, Rice;
     ArrayList<String> request = new ArrayList<String>();
-    String req = "SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE app_recipes_kitchen.Main_product =?);";
-    String data;
-
+    String req = "SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE app_recipes_kitchen.Main_product =?) AND recipes_block =?;";
+    String data1;
+    String data2 = "0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_type_of_product);
-        request.add(req);
+
 
         Meat = (ImageButton) findViewById(R.id.meat);
         Meat.setOnClickListener(this);
@@ -45,49 +45,61 @@ public class type_of_product extends AppCompatActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.meat:
                 Intent intent = new Intent(type_of_product.this, Recicler_search.class);
-                data = "Мясо";
-                if (request.size() != 1) request.remove(1);
-                request.add(data);
+                data1 = "Мясо";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC4, request);
                 startActivity(intent);
                 break;
             case R.id.fish:
                 intent = new Intent(type_of_product.this, Recicler_search.class);
-                data = "Рыба";
-                if (request.size() != 1) request.remove(1);
-                request.add(data);
+                data1 = "Рыба";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC4, request);
                 startActivity(intent);
                 break;
             case R.id.bird:
                 intent = new Intent(type_of_product.this, Recicler_search.class);
-                data = "Птица";
-                if (request.size() != 1) request.remove(1);
-                request.add(data);
+                data1 = "Птица";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC4, request);
                 startActivity(intent);
                 break;
             case R.id.potato:
                 intent = new Intent(type_of_product.this, Recicler_search.class);
-                data = "Картофель";
-                if (request.size() != 1) request.remove(1);
-                request.add(data);
+                data1 = "Картофель";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC4, request);
                 startActivity(intent);
                 break;
             case R.id.pasta:
                 intent = new Intent(type_of_product.this, Recicler_search.class);
-                data = "Макароны";
-                if (request.size() != 1) request.remove(1);
-                request.add(data);
+                data1 = "Макароны";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC4, request);
                 startActivity(intent);
                 break;
             case R.id.rice:
                 intent = new Intent(type_of_product.this, Recicler_search.class);
-                data = "Рис";
-                if (request.size() != 1) request.remove(1);
-                request.add(data);
+                data1 = "Рис";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC4, request);
                 startActivity(intent);
                 break;

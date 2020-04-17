@@ -9,8 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Recipes.R;
 
+import java.util.ArrayList;
+
 public class home extends AppCompatActivity  implements View.OnClickListener {
-    ImageButton Fridg, Favourite, Search, Notes, Back;
+    public static final String EXTRA_REC6 = "home.EXTRA_REC6";
+    ArrayList<String> request = new ArrayList<String>();
+    String req ;
+    String data ;
+    ImageButton Fridg, Favourite, Block, Notes, Back;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +28,8 @@ public class home extends AppCompatActivity  implements View.OnClickListener {
         Fridg.setOnClickListener(this);
         Favourite = (ImageButton) findViewById(R.id.Favorite);
         Favourite.setOnClickListener(this);
-        Search = (ImageButton) findViewById(R.id.Search);
-        Search.setOnClickListener(this);
+        Block = (ImageButton) findViewById(R.id.Search);
+        Block.setOnClickListener(this);
         Notes = (ImageButton) findViewById(R.id.Notes);
         Notes.setOnClickListener(this);
         Back = (ImageButton) findViewById(R.id.Back);
@@ -41,12 +48,26 @@ public class home extends AppCompatActivity  implements View.OnClickListener {
                 intent = new Intent(home.this, com.example.Recipes.screens.Note.Main_note.class);
                 startActivity(intent);
                 break;
-            case R.id.Search:
-                intent = new Intent(home.this, search.class);
+            case R.id.Search://это блок просто не исправляется...
+                intent = new Intent(home.this, Recicler_search.class);
+                req="SELECT * FROM app_recipes WHERE recipes_block =?;";
+                data = "1";
+                request =  new ArrayList<String>();
+
+                request.add(0,req);
+                request.add(1,data);
+                intent.putStringArrayListExtra(EXTRA_REC6,request);
                 startActivity(intent);
                 break;
             case R.id.Favorite:
-                intent = new Intent(home.this, Favorite.class);
+                intent = new Intent(home.this, Recicler_search.class);
+                req="SELECT * FROM app_recipes WHERE recipes_favorites =?;";
+                data = "1";
+                request =  new ArrayList<String>();
+
+                request.add(0,req);
+                request.add(1,data);
+                intent.putStringArrayListExtra(EXTRA_REC6,request);
                 startActivity(intent);
                 break;
             case R.id.Back:

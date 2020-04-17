@@ -20,7 +20,7 @@
         android:layout_height="83dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="60dp"
 
         android:layout_marginRight="60dp"
@@ -42,12 +42,12 @@
         android:id="@+id/Notes"
         android:layout_width="87dp"
         android:layout_height="83dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
 
         android:layout_marginTop="180dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
         android:layout_marginBottom="170dp"
         android:background="#05FFFFFF"
         android:padding="5dp"
@@ -69,7 +69,7 @@
         android:layout_height="83dp"
         android:layout_marginStart="85dp"
         android:layout_marginLeft="85dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="170dp"
         android:layout_marginBottom="65dp"
         android:adjustViewBounds="false"
         android:background="#05E09AF3"
@@ -110,13 +110,14 @@
         android:paddingRight="250dp"
         android:paddingBottom="150dp"
         android:scaleType="fitXY"
-        android:src="@drawable/search2"
+        android:src="@drawable/a1a21a22"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/view4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.65"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        tools:ignore="ContentDescription,MissingConstraints"
+        tools:src="@drawable/a1a21a22" />
 
     <ImageButton
         android:id="@+id/Back"

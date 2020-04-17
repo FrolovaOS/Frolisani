@@ -123,4 +123,11 @@ public class Recipes_class {
     }
 
 
+    public int GetBlock() {
+        return block;
+    }
+
+    public int GetFavorite() {
+        return favorites;
+    }
 }

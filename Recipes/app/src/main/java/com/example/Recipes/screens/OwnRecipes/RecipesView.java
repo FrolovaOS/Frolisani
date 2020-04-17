@@ -64,9 +64,11 @@ public class RecipesView extends AppCompatActivity {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_GRANTED) {
-                File image = new File(rep.screen);
-                Bitmap bm = BitmapFactory.decodeFile(image.getAbsolutePath());
-                Screen.setImageBitmap(bm);
+                if(rep.screen!= null) {
+                    File image = new File(rep.screen);
+                    Bitmap bm = BitmapFactory.decodeFile(image.getAbsolutePath());
+                    Screen.setImageBitmap(bm);
+                }
             }
         }
 

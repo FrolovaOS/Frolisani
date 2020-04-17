@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Recipes.R;
+import com.example.Recipes.Recipes_class;
 import com.example.Recipes.screens.Recicler_search;
 
 import java.util.ArrayList;
@@ -16,8 +17,9 @@ public class drinks extends AppCompatActivity implements View.OnClickListener {
     public static final String EXTRA_REC5 = "kitchen.EXTRA_REC5";
     ImageButton Alco,Non_alco,hot;
     ArrayList<String> request = new ArrayList<String>();
-    String req = "SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE app_recipes_kitchen.type_drink =?);";
-    String data;
+    String req = "SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE app_recipes_kitchen.type_drink =?) AND recipes_block =?;";
+    String data1;
+    String data2 = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,24 +41,33 @@ public class drinks extends AppCompatActivity implements View.OnClickListener {
         {
             case R.id.alcoholic:
                 Intent intent = new Intent(drinks.this, Recicler_search.class);
-                data = "Алкогольные";
-                if (request.size() != 1) request.remove(1);
-                request.add(data);
+                data1 = "Алкогольный";
+                //if (request.size() != 1) request.remove(1);
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC5, request); startActivity(intent);
                 break;
             case R.id.non_alcoholic:
                 intent = new Intent(drinks.this, Recicler_search.class);
-                data = "Безалкогольные";
-                if (request.size() != 1) request.remove(1);
-                request.add(data);
+                data1 = "Безалкогольный";
+                //if (request.size() != 1) request.remove(1);
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC5, request);
                 startActivity(intent);
                 break;
             case R.id.hot:
                 intent = new Intent(drinks.this, Recicler_search.class);
-                data = "Горячие";
-                if (request.size() != 1) request.remove(1);
-                request.add(data);
+                data1 = "Горячий";
+               // if (request.size() != 1) request.remove(1);
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC5, request);
                 startActivity(intent);
                 break;
