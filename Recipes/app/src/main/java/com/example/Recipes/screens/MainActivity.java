@@ -1,25 +1,38 @@
 package com.example.Recipes.screens;
 import android.Manifest;
+import android.content.ContentValues;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.content.pm.PackageManager;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 
 import com.example.Recipes.R;
 import com.example.Recipes.data_note.AppDao;
 import com.example.Recipes.data_note.NoteDataBase;
 
-
 import java.io.IOException;
 
 import static com.example.Recipes.data_note.NoteDataBase.getDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+
+
+
     ImageButton AddRecipes,Home,Search,Notes;
 
     private NoteDataBase database;
@@ -56,8 +69,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (SQLException mSQLException) {
             throw mSQLException;
         }
-
-
 
         instance = this;
         instanceRep = this;

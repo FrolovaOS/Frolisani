@@ -121,21 +121,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.RepViewHolder> {
                     MainActivity.getInstanceRep().getAppDao().deleteR(recipes);
                 }
             });
-            ///
             change.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Add_Form_Recipes.start((Activity) itemView.getContext(),recipes);
                 }
             });
-           // change.setOnClickListener(new View.OnClickListener() {
-             //   @Override
-               // public void onClick(View view) {
-                 //   MainActivity.getInstanceRep().getRepDao().update(recipes);
-                //}
-            //});
-            ///
-
 
         }
 

@@ -12,7 +12,7 @@ public class Recipes_class {
     private int block;
     private int favorites;
     private int position;
-//не забыть добавить фотку в конструктор когда ее наконцето сделают!
+
     public Recipes_class()
     {
         position =0;

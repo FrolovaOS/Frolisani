@@ -63,9 +63,16 @@ public class Recicler_search extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
-        String querry = request.get(0);
-        String[] where = {request.get(1),request.get(2)};
+        String querry ="";
+        String[] where=new String[3];
+        if(request.size()==3) {
+           querry = request.get(0);
+           where = new String[]{request.get(1), request.get(2)};
+        }
+        else if (request.size()==2) {
+            querry = request.get(0);
+            where = new String[]{request.get(1)};
+        }
 
         mDb = mDBHelper.getReadableDatabase();
         ArrayList rec = mDBHelper.listRecipes(querry,where);

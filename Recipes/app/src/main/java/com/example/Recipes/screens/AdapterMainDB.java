@@ -5,6 +5,9 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +21,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Recipes.R;
 import com.example.Recipes.Recipes_class;
-
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.function.UnaryOperator;
 
 public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesViewHolder> {
 
@@ -63,6 +65,7 @@ public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVi
         TextView Character;
         ImageView Block;
         ImageView Favorite;
+        ImageView Photo;
         Recipes_class recp;
         ArrayList<String> recipe;
         public DatabaseHelper mDBHelper = new DatabaseHelper(mContext);
@@ -76,6 +79,8 @@ public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVi
              Character= itemView.findViewById(R.id.character);
             Time = itemView.findViewById(R.id.time);
             Favorite= itemView.findViewById(R.id.favorites);
+            Photo= itemView.findViewById(R.id.photo);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -88,7 +93,7 @@ public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVi
                     recipe.add(5,recp.getLevel());
                     recipe.add(6,String.valueOf(recp.getBlock()));
                     recipe.add(7,String.valueOf(recp.getFavorites()));
-                    // recipe.add(8,rep.getImage());
+                    recipe.add(8,recp.getImage());
 
                     Recicler_search.start1((Activity) itemView.getContext(),recipe);
                 }
@@ -145,6 +150,23 @@ public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVi
             recipes.setText(rec.GetName());
             Time.setText(rec.getTime());
             Character.setText((rec.getCharacter()));
+            if(rec.getImage() != null) {
+                InputStream inputStream = null;
+                try {
+                    inputStream = mContext.getAssets().open(recp.getImage());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Drawable d = Drawable.createFromStream(inputStream, null);
+                Photo.setImageDrawable(d);
+                if(inputStream!=null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
     }
 
