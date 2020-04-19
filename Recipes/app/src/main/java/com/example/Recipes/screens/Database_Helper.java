@@ -108,7 +108,6 @@ class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<Recipes_class> listRecipes(String _selectQuere,String[] _where) {
         ArrayList<Recipes_class> recipes = new ArrayList<>();
 
-        //String selectQuery = "SELECT * FROM app_recipes";
         String selectQuery = _selectQuere;
         String[] Where = _where;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -128,7 +127,10 @@ class DatabaseHelper extends SQLiteOpenHelper {
                 recipe.setTime(cursor.getString(8));
                 recipe.setPosition(i);
                 i++;
-                //recipe.setImage(cursor.getString(9));
+                if(cursor.getString(9) !="Null") {
+                    recipe.setImage(cursor.getString(9));
+                }
+                else recipe.setImage("NULL");
                 recipes.add(recipe);
             } while (cursor.moveToNext());
         }

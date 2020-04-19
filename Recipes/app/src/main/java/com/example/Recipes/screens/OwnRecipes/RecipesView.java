@@ -23,6 +23,7 @@ import com.example.Recipes.model_Adding_Recipes.Own_Recipes;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -64,9 +65,11 @@ public class RecipesView extends AppCompatActivity {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_GRANTED) {
-                File image = new File(rep.screen);
-                Bitmap bm = BitmapFactory.decodeFile(image.getAbsolutePath());
-                Screen.setImageBitmap(bm);
+                if(rep.screen!= null) {
+                    File image = new File(rep.screen);
+                    Bitmap bm = BitmapFactory.decodeFile(image.getAbsolutePath());
+                    Screen.setImageBitmap(bm);
+                }
             }
         }
 
@@ -78,17 +81,26 @@ public class RecipesView extends AppCompatActivity {
                 Products.setText(recArray.get(3));
                 Time.setText(recArray.get(4));
                 Level.setText(recArray.get(5));
-                //для фотки
-//                ActivityCompat.requestPermissions(this,
-//                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE },
-//                        REQUEST_EXTERNAL_STORAGE);
-//                if (ActivityCompat.checkSelfPermission(this,
-//                        Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-//                        PackageManager.PERMISSION_GRANTED) {
-//                    File image = new File(recArray.get(8));
-//                    Bitmap bm = BitmapFactory.decodeFile(image.getAbsolutePath());
-//                    Screen.setImageBitmap(bm);
+                if(recArray.get(8)!="NULL") {
+
+                        InputStream inputStream = null;
+                        try {
+                            inputStream = getApplicationContext().getAssets().open(recArray.get(8));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Drawable d = Drawable.createFromStream(inputStream, null);
+                        Screen.setImageDrawable(d);
+                        if(inputStream!=null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
                 }
+            }
 
 
     }

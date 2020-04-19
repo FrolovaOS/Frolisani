@@ -1,12 +1,18 @@
 package com.example.Recipes.screens.OwnRecipes;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SortedList;
 
@@ -14,6 +20,7 @@ import com.example.Recipes.R;
 import com.example.Recipes.model_Adding_Recipes.Own_Recipes;
 import com.example.Recipes.screens.MainActivity;
 
+import java.io.File;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.RepViewHolder> {
@@ -85,10 +92,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.RepViewHolder> {
     static class RepViewHolder extends RecyclerView.ViewHolder {
 
         TextView noteText;
+        TextView time;
 
         View delete;
         View change;
-
+        ImageView photo;
         Own_Recipes recipes;
 
 
@@ -98,6 +106,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.RepViewHolder> {
             noteText = itemView.findViewById(R.id.note_text);
             delete = itemView.findViewById(R.id.delete);
             change = itemView.findViewById(R.id.change);
+            photo = itemView.findViewById(R.id.Photo);
+            time = itemView.findViewById(R.id.Time);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -111,21 +121,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.RepViewHolder> {
                     MainActivity.getInstanceRep().getAppDao().deleteR(recipes);
                 }
             });
-            ///
             change.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Add_Form_Recipes.start((Activity) itemView.getContext(),recipes);
                 }
             });
-           // change.setOnClickListener(new View.OnClickListener() {
-             //   @Override
-               // public void onClick(View view) {
-                 //   MainActivity.getInstanceRep().getRepDao().update(recipes);
-                //}
-            //});
-            ///
-
 
         }
 
@@ -133,7 +134,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.RepViewHolder> {
             this.recipes = recipes;
 
             noteText.setText(recipes.name);
+            time.setText(recipes.time);
+            if(recipes.screen != null) {
+                File image = new File(recipes.screen);
+                Bitmap bm = BitmapFactory.decodeFile(image.getAbsolutePath());
+                photo.setImageBitmap(bm);
+            }
+            }
 
         }
     }
-}
+

@@ -16,14 +16,14 @@ public class type_of_dish extends AppCompatActivity implements View.OnClickListe
     public static final String EXTRA_REC2 = "type_of_dish.EXTRA_REC2";
     ImageButton Hot_dish,Soup,Salad,Bakery,Dessert;
     ArrayList<String> request = new ArrayList<String>();
-    String req ="SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE app_recipes_kitchen.Type_of_dish =?);";
-
-    String data ;
+    String req ="SELECT * FROM app_recipes WHERE recipes_id In (SELECT r_k_id FROM app_recipes_kitchen WHERE app_recipes_kitchen.Type_of_dish =?) AND recipes_block =?;";
+    String data1 ;
+    String data2 = "0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_type_of_dish);
-        request.add(req);
+
 
         Hot_dish = (ImageButton) findViewById(R.id.hot_dish);
         Hot_dish.setOnClickListener(this);
@@ -44,40 +44,50 @@ public class type_of_dish extends AppCompatActivity implements View.OnClickListe
         {
             case R.id.hot_dish:
                 Intent intent = new Intent(type_of_dish.this, Recicler_search.class);
-                data = "Второе блюдо";
-                if(request.size()!= 1) request.remove(1);
-                request.add(data);
+                data1 = "Второе блюдо";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC2,request); startActivity(intent);
                 break;
             case R.id.soup:
                 intent = new Intent(type_of_dish.this, Recicler_search.class);
-                data = "Суп";
-                if(request.size()!= 1) request.remove(1);
-                request.add(data);
+                data1 = "Суп";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC2,request);
                 startActivity(intent);
                 break;
             case R.id.salad:
                 intent = new Intent(type_of_dish.this, Recicler_search.class);
-                data = "Салат";
-                if(request.size()!= 1) request.remove(1);
-                request.add(data);
+                data1 = "Салат";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC2,request);
                 startActivity(intent);
                 break;
             case R.id.bakery:
                 intent = new Intent(type_of_dish.this, Recicler_search.class);
-                data = "Выпечка";
-                if(request.size()!= 1) request.remove(1);
-                request.add(data);
+                data1 = "Выпечка";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC2,request);
                 startActivity(intent);
                 break;
             case R.id.dessert:
                 intent = new Intent(type_of_dish.this, Recicler_search.class);
-                data = "Десерт";
-                if(request.size()!= 1) request.remove(1);
-                request.add(data);
+                data1 = "Десерт";
+                request = new ArrayList<String>();
+                request.add(req);
+                request.add(data1);
+                request.add(data2);
                 intent.putStringArrayListExtra(EXTRA_REC2,request);
                 startActivity(intent);
                 break;
