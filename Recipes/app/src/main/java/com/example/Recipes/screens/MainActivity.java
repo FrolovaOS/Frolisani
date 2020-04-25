@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             throw mSQLException;
         }
 
+
         instance = this;
         instanceRep = this;
         database = getDatabase(getApplicationContext());
