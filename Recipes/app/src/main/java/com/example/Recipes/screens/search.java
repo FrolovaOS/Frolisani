@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.Recipes.R;
@@ -27,7 +29,7 @@ public class search extends AppCompatActivity  implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
+        final EditText editText = (EditText)findViewById(R.id.Search);
         Kitchen = (ImageButton) findViewById(R.id.kitchen);
         Kitchen.setOnClickListener(this);
         Type_of_food = (ImageButton) findViewById(R.id.type_of_food);
@@ -38,6 +40,21 @@ public class search extends AppCompatActivity  implements View.OnClickListener{
         Main_product.setOnClickListener(this);
         Drinks = (ImageButton) findViewById(R.id.drinks);
         Drinks.setOnClickListener(this);
+
+        editText.setOnKeyListener(new View.OnKeyListener()
+                                  {
+                                      public boolean onKey(View v, int keyCode, KeyEvent event)
+                                      {
+                                          if(event.getAction() == KeyEvent.ACTION_DOWN &&
+                                                  (keyCode == KeyEvent.KEYCODE_ENTER))
+                                          {
+                                              String NameRecipes = editText.getText().toString();
+                                              return true;
+                                          }
+                                          return false;
+                                      }
+                                  }
+        );
     }
     @Override
     public void onClick(View v) {
