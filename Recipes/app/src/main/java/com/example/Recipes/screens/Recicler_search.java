@@ -27,6 +27,7 @@ import static com.example.Recipes.screens.menu.kitchen.EXTRA_REC1;
 import static com.example.Recipes.screens.menu.type_of_dish.EXTRA_REC2;
 import static com.example.Recipes.screens.menu.type_of_food.EXTRA_REC3;
 import static com.example.Recipes.screens.menu.type_of_product.EXTRA_REC4;
+import static com.example.Recipes.screens.search.EXTRA_REC7;
 
 public class Recicler_search extends AppCompatActivity {
     public static final String EXTRA_RECIPE = "Recicler_search.EXTRA_RECIPE";
@@ -57,6 +58,7 @@ public class Recicler_search extends AppCompatActivity {
          if (request == null) request = getIntent().getStringArrayListExtra(EXTRA_REC4);
         if (request == null) request = getIntent().getStringArrayListExtra(EXTRA_REC5);
         if (request == null) request = getIntent().getStringArrayListExtra(EXTRA_REC6);
+        if (request == null) request = getIntent().getStringArrayListExtra(EXTRA_REC7);
 
         mDBHelper=new DatabaseHelper(this);
         recyclerView = findViewById(R.id.recyclerView);

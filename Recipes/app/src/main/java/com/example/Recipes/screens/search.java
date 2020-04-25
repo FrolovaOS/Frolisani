@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class search extends AppCompatActivity  implements View.OnClickListener{
+    public static final String EXTRA_REC7 = "kitchen.EXTRA_REC7";
     ImageButton Kitchen,Type_of_food, Type_of_dish,Drinks,Main_product;
 
 
@@ -49,6 +50,28 @@ public class search extends AppCompatActivity  implements View.OnClickListener{
                                                   (keyCode == KeyEvent.KEYCODE_ENTER))
                                           {
                                               String NameRecipes = editText.getText().toString();
+                                              Intent intent = new Intent(search.this, Recicler_search.class);
+                                              String req = "WITH RECURSIVE tmp AS ( " +
+                                                      "SELECT app.*, d_l.pr_id, d_l.ch_id " +
+                                                      "FROM app_recipes app " +
+                                                      "JOIN descriptor d_l " +
+                                                      "ON (upper(app.recipes_name) = upper(?) AND app.recipes_id = d_l.pr_id) " +
+                                                      "UNION " +
+                                                      "SELECT app.*, d_l.pr_id, d_l.ch_id " +
+                                                      "FROM app_recipes app " +
+                                                      "JOIN descriptor d_l " +
+                                                      "ON t.ch_id = d_l.pr_id " +
+                                                      "JOIN tmp t " +
+                                                      "ON app.recipes_id = t.ch_id " +
+                                                      ") " +
+                                                      "select tmp.* from tmp " +
+                                                      "GROUP BY tmp.recipes_id ";
+                                              String data1 = NameRecipes;
+                                              ArrayList<String> request = new ArrayList<String>();
+                                              request.add(req);
+                                              request.add(data1);
+                                              intent.putStringArrayListExtra(EXTRA_REC7,request);
+                                              startActivity(intent);
                                               return true;
                                           }
                                           return false;
