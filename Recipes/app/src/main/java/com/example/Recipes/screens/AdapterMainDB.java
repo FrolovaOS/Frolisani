@@ -47,10 +47,7 @@ public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVi
     public void onBindViewHolder(@NonNull RecipesViewHolder holder, int position) {
         final Recipes_class rec = RECIPES.get(position);
         holder.bind(rec);
-
-        //добавить злосчастную фотку
-
-        }
+    }
 
     @Override
     public int getItemCount() {
