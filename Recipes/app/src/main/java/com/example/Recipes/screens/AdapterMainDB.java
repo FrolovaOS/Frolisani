@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -59,7 +60,8 @@ public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVi
     public  class RecipesViewHolder extends RecyclerView.ViewHolder {
         TextView recipes;
         TextView Time;
-        TextView Character;
+        TextView instock;
+        TextView notinstock;
         ImageView Block;
         ImageView Favorite;
         ImageView Photo;
@@ -73,10 +75,14 @@ public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVi
             super(view);
             recipes = itemView.findViewById(R.id.recipe);
             Block = itemView.findViewById(R.id.block1);
-             Character= itemView.findViewById(R.id.character);
+            instock= itemView.findViewById(R.id.InStock);
+            notinstock= itemView.findViewById(R.id.NotInStock);
             Time = itemView.findViewById(R.id.time);
             Favorite= itemView.findViewById(R.id.favorites);
             Photo= itemView.findViewById(R.id.photo);
+
+
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -146,7 +152,7 @@ public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVi
             this.recp = rec;
             recipes.setText(rec.GetName());
             Time.setText(rec.getTime());
-            Character.setText((rec.getCharacter()));
+
             if(rec.getImage() != null) {
                 InputStream inputStream = null;
                 try {
@@ -164,6 +170,33 @@ public  class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVi
                     }
                 }
             }
+
+            String InStock="";
+            String NotInStock="";
+            String selectQuery =  "SELECT product_name " +
+                    "FROM app_product, app_entry " +
+                    "WHERE (product_id = p_id AND r_id = ? AND product_fridge = 1);";//есть в холодильнике
+            String[] where= new String[]{String.valueOf(rec.GetId())};
+            SQLiteDatabase db = mDBHelper.getWritableDatabase();
+            Cursor cursor = db.rawQuery(selectQuery, where);
+            if (cursor.moveToFirst()) {
+                do {
+                    InStock+=cursor.getString(0)+ ", ";
+                } while (cursor.moveToNext());
+            }
+            instock.setText(InStock);
+            selectQuery =  "SELECT product_name " +
+                    "FROM app_product, app_entry " +
+                    "WHERE (product_id = p_id AND r_id = ? AND product_fridge = 0);";//нет в холодильнике
+            cursor = db.rawQuery(selectQuery, where);
+            if (cursor.moveToFirst()) {
+                do {
+                    NotInStock+=cursor.getString(0)+ ", ";
+                } while (cursor.moveToNext());
+            }
+            notinstock.setText(NotInStock);
+            db.close();
+            cursor.close();
         }
     }
 
