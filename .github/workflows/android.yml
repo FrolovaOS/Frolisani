@@ -32,7 +32,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-        
+       
+    - name: Change wrapper permissions
+    - run: chmod +x ./gradlew
+    
+    - name: build project 
     - run: | 
              ./Recipes/app/build.gradle build
 
