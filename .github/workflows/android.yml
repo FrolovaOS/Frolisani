@@ -27,6 +27,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+      
+    - name: checkVersion
+      run: gradle -v
+      
     - name: Build with Gradle
       run: ./gradlew build
       continue-on-error: true
