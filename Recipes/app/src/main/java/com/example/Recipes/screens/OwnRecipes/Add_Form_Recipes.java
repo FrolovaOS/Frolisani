@@ -199,7 +199,7 @@ public class Add_Form_Recipes extends AppCompatActivity implements View.OnClickL
     } catch (
         Exception
             e) // здесь необходим блок отслеживания реальных ошибок и исключений, общий Exception
-               // приведен в качестве примера
+    // приведен в качестве примера
     {
       return e.getMessage();
     }

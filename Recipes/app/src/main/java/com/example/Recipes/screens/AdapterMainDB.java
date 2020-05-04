@@ -171,7 +171,7 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
           "SELECT product_name "
               + "FROM app_product, app_entry "
               + "WHERE (product_id = p_id AND r_id = ? AND product_fridge = 1);"; // есть в
-                                                                                  // холодильнике
+      // холодильнике
       String[] where = new String[] {String.valueOf(rec.GetId())};
       SQLiteDatabase db = mDBHelper.getWritableDatabase();
       Cursor cursor = db.rawQuery(selectQuery, where);
@@ -185,7 +185,7 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
           "SELECT product_name "
               + "FROM app_product, app_entry "
               + "WHERE (product_id = p_id AND r_id = ? AND product_fridge = 0);"; // нет в
-                                                                                  // холодильнике
+      // холодильнике
       cursor = db.rawQuery(selectQuery, where);
       if (cursor.moveToFirst()) {
         do {
