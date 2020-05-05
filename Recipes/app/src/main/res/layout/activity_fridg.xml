@@ -7,15 +7,25 @@
     android:background="#FFCCBC"
     tools:context="com.example.Recipes.screens.OwnRecipes.AddRecipes">
 
-
-
+    <EditText
+        android:id="@+id/Search_pr"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Введите рецепт"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewFridg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp" />
+        android:layout_marginTop="40dp"
+        android:clipToPadding="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarFadeDuration="1000"
+        android:scrollbarSize="80dp"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical"
+        android:verticalScrollbarPosition="right"
+        app:layout_constraintTop_toBottomOf="@+id/Search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
