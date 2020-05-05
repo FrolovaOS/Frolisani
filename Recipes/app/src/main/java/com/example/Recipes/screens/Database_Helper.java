@@ -117,6 +117,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
     cursor.close();
     return products;
   }
+
   public ArrayList<Product_class> Product(String _selectQuere, String[] _where) {
     ArrayList<Product_class> products = new ArrayList<>();
     String selectQuery = _selectQuere;
@@ -141,7 +142,6 @@ class DatabaseHelper extends SQLiteOpenHelper {
     cursor.close();
     return products;
   }
-
 
   ///////////////////// запросы
   public ArrayList<Recipes_class> listRecipes(String _selectQuere, String[] _where) {
