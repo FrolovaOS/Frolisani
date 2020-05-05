@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Фактическое время хзхзхз, подготовка дофига и больше"
+                    android:text="5 часов"
                     android:textSize="16sp" />
 
                 <TextView
