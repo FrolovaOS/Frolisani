@@ -49,8 +49,6 @@ public class Fridg extends AppCompatActivity {
               public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN && (keyCode == KeyEvent.KEYCODE_ENTER)) {
                    NameProduct = editText.getText().toString();
-                   req = "SELECT * FROM app_product WHERE Product_name=?;";
-                   String Where[] = {NameProduct};
                     int size = prod.size();
                     int position=0;
                     for(int i =0; i < size;i++)
@@ -66,11 +64,4 @@ public class Fridg extends AppCompatActivity {
               }
             });
   }
-    public void goto1(ArrayList prod){
-        if (flag == 1) {
-
-            final Adapter_product adapter = new Adapter_product(this, prod);
-            recyclerView.setAdapter(adapter);
-        }
-    }
 }
