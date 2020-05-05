@@ -25,12 +25,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: build project
-     
-    - run: | 
+      run: | 
            gradle build
 
       continue-on-error: true
