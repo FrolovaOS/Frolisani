@@ -31,5 +31,3 @@ jobs:
       run: | 
            cd ./Recipes/app
            gradle build
-
-      continue-on-error: true
