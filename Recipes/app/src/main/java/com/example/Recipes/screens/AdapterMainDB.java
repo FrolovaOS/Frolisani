@@ -19,20 +19,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+
+
 public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesViewHolder> {
 
   protected final Context mContext;
   private ArrayList<Recipes_class> RECIPES;
-  // public DatabaseHelper mDBHelper;
-  protected AdapterMainDB(Context context, ArrayList rec) {
+  protected AdapterMainDB(Context context, ArrayList<Recipes_class> _RECIPES) {
     this.mContext = context;
-    RECIPES = rec;
+    RECIPES=_RECIPES;
+
   }
 
   @Override
   public RecipesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View view =
-        LayoutInflater.from(parent.getContext()).inflate(R.layout.item_search_list, parent, false);
+            LayoutInflater.from(parent.getContext()).inflate(R.layout.item_search_list, parent, false);
     return new RecipesViewHolder(view);
   }
 
@@ -72,74 +74,83 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
       Photo = itemView.findViewById(R.id.photo);
 
       itemView.setOnClickListener(
-          new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              recipe = new ArrayList<String>();
-              recipe.add(0, recp.GetName());
-              recipe.add(1, recp.getCharacter());
-              recipe.add(2, recp.getInstruction());
-              recipe.add(3, recp.getProduct());
-              recipe.add(4, recp.getTime());
-              recipe.add(5, recp.getLevel());
-              recipe.add(6, String.valueOf(recp.getBlock()));
-              recipe.add(7, String.valueOf(recp.getFavorites()));
-              recipe.add(8, recp.getImage());
+              new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                  recipe = new ArrayList<String>();
+                  recipe.add(0, recp.GetName());
+                  recipe.add(1, recp.getCharacter());
+                  recipe.add(2, recp.getInstruction());
+                  recipe.add(3, recp.getProduct());
+                  recipe.add(4, recp.getTime());
+                  recipe.add(5, recp.getLevel());
+                  recipe.add(6, String.valueOf(recp.getBlock()));
+                  recipe.add(7, String.valueOf(recp.getFavorites()));
+                  recipe.add(8, recp.getImage());
 
-              Recicler_search.start1((Activity) itemView.getContext(), recipe);
-            }
-          });
+                  Recicler_search.start1((Activity) itemView.getContext(), recipe);
+
+                }
+              });
 
       Block.setOnClickListener(
-          new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+              new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-              SQLiteDatabase db = mDBHelper.getWritableDatabase();
-              if (recp.GetBlock() == 0) {
-                cv.put("Recipes_block", 1);
-                db.update(
-                    "app_recipes",
-                    cv,
-                    "recipes_id = ?",
-                    new String[] {String.valueOf(recp.GetId())});
-                recp.setBlock(1);
-              } else {
-                cv.put("Recipes_block", 0);
-                db.update(
-                    "app_recipes",
-                    cv,
-                    "recipes_id = ?",
-                    new String[] {String.valueOf(recp.GetId())});
-                recp.setBlock(0);
-              }
-            }
-          });
+                  SQLiteDatabase db = mDBHelper.getWritableDatabase();
+                  if (recp.GetBlock() == 0) {
+                    cv.put("Recipes_block", 1);
+                    db.update(
+                            "app_recipes",
+                            cv,
+                            "recipes_id = ?",
+                            new String[]{String.valueOf(recp.GetId())});
+                    recp.setBlock(1);
+                    notifyItemRemoved(getAdapterPosition());
+                  } else {
+                    cv.put("Recipes_block", 0);
+                    db.update(
+                            "app_recipes",
+                            cv,
+                            "recipes_id = ?",
+                            new String[]{String.valueOf(recp.GetId())});
+                    recp.setBlock(0);
+                    RECIPES.remove(getAdapterPosition());
+                    notifyItemRemoved(getAdapterPosition());
+
+                  }
+
+
+                }
+              });
       ///
       Favorite.setOnClickListener(
-          new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              SQLiteDatabase db = mDBHelper.getWritableDatabase();
-              if (recp.GetFavorite() == 0) {
-                cv.put("Recipes_favorites", 1);
-                db.update(
-                    "app_recipes",
-                    cv,
-                    "recipes_id = ?",
-                    new String[] {String.valueOf(recp.GetId())});
-                recp.setFavorites(1);
-              } else {
-                cv.put("Recipes_favorites", 0);
-                db.update(
-                    "app_recipes",
-                    cv,
-                    "recipes_id = ?",
-                    new String[] {String.valueOf(recp.GetId())});
-                recp.setFavorites(0);
-              }
-            }
-          });
+              new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                  SQLiteDatabase db = mDBHelper.getWritableDatabase();
+                  if (recp.GetFavorite() == 0) {
+                    cv.put("Recipes_favorites", 1);
+                    db.update(
+                            "app_recipes",
+                            cv,
+                            "recipes_id = ?",
+                            new String[]{String.valueOf(recp.GetId())});
+                    recp.setFavorites(1);
+                  } else {
+                    cv.put("Recipes_favorites", 0);
+                    db.update(
+                            "app_recipes",
+                            cv,
+                            "recipes_id = ?",
+                            new String[]{String.valueOf(recp.GetId())});
+                    recp.setFavorites(0);
+
+                  }
+                  notifyItemChanged(getAdapterPosition());
+                }
+              });
     }
 
     public void bind(Recipes_class rec) {
@@ -147,14 +158,32 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
       recipes.setText(rec.GetName());
       Time.setText(rec.getTime());
 
+      InputStream inputStream = null;
+      try {
+        if (rec.GetFavorite() == 1)
+          inputStream = mContext.getAssets().open("звезда1.png");
+        else inputStream = mContext.getAssets().open("Star-Favorites.png");
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      Drawable d = Drawable.createFromStream(inputStream, null);
+      Favorite.setImageDrawable(d);
+      if (inputStream != null) {
+        try {
+          inputStream.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+
       if (rec.getImage() != null) {
-        InputStream inputStream = null;
+        inputStream = null;
         try {
           inputStream = mContext.getAssets().open(recp.getImage());
         } catch (IOException e) {
           e.printStackTrace();
         }
-        Drawable d = Drawable.createFromStream(inputStream, null);
+        d = Drawable.createFromStream(inputStream, null);
         Photo.setImageDrawable(d);
         if (inputStream != null) {
           try {
@@ -168,11 +197,11 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
       String InStock = "";
       String NotInStock = "";
       String selectQuery =
-          "SELECT product_name "
-              + "FROM app_product, app_entry "
-              + "WHERE (product_id = p_id AND r_id = ? AND product_fridge = 1);"; // есть в
+              "SELECT product_name "
+                      + "FROM app_product, app_entry "
+                      + "WHERE (product_id = p_id AND r_id = ? AND product_fridge = 1);"; // есть в
       // холодильнике
-      String[] where = new String[] {String.valueOf(rec.GetId())};
+      String[] where = new String[]{String.valueOf(rec.GetId())};
       SQLiteDatabase db = mDBHelper.getWritableDatabase();
       Cursor cursor = db.rawQuery(selectQuery, where);
       if (cursor.moveToFirst()) {
@@ -182,9 +211,9 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
       }
       instock.setText(InStock);
       selectQuery =
-          "SELECT product_name "
-              + "FROM app_product, app_entry "
-              + "WHERE (product_id = p_id AND r_id = ? AND product_fridge = 0);"; // нет в
+              "SELECT product_name "
+                      + "FROM app_product, app_entry "
+                      + "WHERE (product_id = p_id AND r_id = ? AND product_fridge = 0);"; // нет в
       // холодильнике
       cursor = db.rawQuery(selectQuery, where);
       if (cursor.moveToFirst()) {

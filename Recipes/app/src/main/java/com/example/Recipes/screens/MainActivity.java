@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     switch (v.getId()) {
       case R.id.AddRecipes:
         Intent intent =
-            new Intent(MainActivity.this, com.example.Recipes.screens.OwnRecipes.AddRecipes.class);
+                new Intent(MainActivity.this, com.example.Recipes.screens.OwnRecipes.AddRecipes.class);
         startActivity(intent);
         break;
       case R.id.Notes:

@@ -26,7 +26,7 @@ public class Adapter_product extends RecyclerView.Adapter<Adapter_product.Produc
   @Override
   public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View view =
-        LayoutInflater.from(parent.getContext()).inflate(R.layout.item_of_fridg, parent, false);
+            LayoutInflater.from(parent.getContext()).inflate(R.layout.item_of_fridg, parent, false);
     return new ProductViewHolder(view);
   }
 
@@ -55,36 +55,36 @@ public class Adapter_product extends RecyclerView.Adapter<Adapter_product.Produc
       product_name = itemView.findViewById(R.id.note_text1);
       IsExit = itemView.findViewById(R.id.switch1);
       itemView.setOnClickListener(
-          new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {}
-          });
+              new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {}
+              });
 
       IsExit.setOnClickListener(
-          new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+              new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-              SQLiteDatabase db = mDBHelper.getWritableDatabase();
-              if (IsExit.isChecked()) {
-                cv.put("product_fridge", 1);
-                db.update(
-                    "app_product",
-                    cv,
-                    "product_id = ?",
-                    new String[] {String.valueOf(product.getId())});
-                product.setIsExit(1);
-              } else {
-                cv.put("product_fridge", 0);
-                db.update(
-                    "app_product",
-                    cv,
-                    "product_id = ?",
-                    new String[] {String.valueOf(product.getId())});
-                product.setIsExit(0);
-              }
-            }
-          });
+                  SQLiteDatabase db = mDBHelper.getWritableDatabase();
+                  if (IsExit.isChecked()) {
+                    cv.put("product_fridge", 1);
+                    db.update(
+                            "app_product",
+                            cv,
+                            "product_id = ?",
+                            new String[] {String.valueOf(product.getId())});
+                    product.setIsExit(1);
+                  } else {
+                    cv.put("product_fridge", 0);
+                    db.update(
+                            "app_product",
+                            cv,
+                            "product_id = ?",
+                            new String[] {String.valueOf(product.getId())});
+                    product.setIsExit(0);
+                  }
+                }
+              });
     }
 
     public void bind(Product_class prod) {
