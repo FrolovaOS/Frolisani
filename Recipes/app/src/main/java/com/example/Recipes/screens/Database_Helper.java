@@ -118,31 +118,6 @@ class DatabaseHelper extends SQLiteOpenHelper {
     return products;
   }
 
-  public ArrayList<Product_class> Product(String _selectQuere, String[] _where) {
-    ArrayList<Product_class> products = new ArrayList<>();
-    String selectQuery = _selectQuere;
-    String[] Where = _where;
-    SQLiteDatabase db = this.getWritableDatabase();
-    // Cursor cursor = db.query("app_product",new String[]
-    // {"product_name"},null,null,null,null,"product_name");
-    int i = 0;
-    Cursor cursor = db.rawQuery(selectQuery, Where);
-    if (cursor.moveToFirst()) {
-      do {
-        Product_class product = new Product_class();
-        product.setId(cursor.getInt(0));
-        product.setName(cursor.getString(1));
-        product.setIsExit(cursor.getInt(2));
-        product.setPosition(i);
-        i++;
-        products.add(product);
-      } while (cursor.moveToNext());
-    }
-    db.close();
-    cursor.close();
-    return products;
-  }
-
   ///////////////////// запросы
   public ArrayList<Recipes_class> listRecipes(String _selectQuere, String[] _where) {
     ArrayList<Recipes_class> recipes = new ArrayList<>();
