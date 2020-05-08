@@ -23,10 +23,10 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
 
   protected final Context mContext;
   private ArrayList<Recipes_class> RECIPES;
-  // public DatabaseHelper mDBHelper;
-  protected AdapterMainDB(Context context, ArrayList rec) {
+
+  protected AdapterMainDB(Context context, ArrayList<Recipes_class> _RECIPES) {
     this.mContext = context;
-    RECIPES = rec;
+    RECIPES = _RECIPES;
   }
 
   @Override
@@ -104,6 +104,7 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
                     "recipes_id = ?",
                     new String[] {String.valueOf(recp.GetId())});
                 recp.setBlock(1);
+                notifyItemRemoved(getAdapterPosition());
               } else {
                 cv.put("Recipes_block", 0);
                 db.update(
@@ -112,6 +113,8 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
                     "recipes_id = ?",
                     new String[] {String.valueOf(recp.GetId())});
                 recp.setBlock(0);
+                RECIPES.remove(getAdapterPosition());
+                notifyItemRemoved(getAdapterPosition());
               }
             }
           });
@@ -138,6 +141,7 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
                     new String[] {String.valueOf(recp.GetId())});
                 recp.setFavorites(0);
               }
+              notifyItemChanged(getAdapterPosition());
             }
           });
     }
@@ -147,14 +151,31 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
       recipes.setText(rec.GetName());
       Time.setText(rec.getTime());
 
+      InputStream inputStream = null;
+      try {
+        if (rec.GetFavorite() == 1) inputStream = mContext.getAssets().open("звезда1.png");
+        else inputStream = mContext.getAssets().open("Star-Favorites.png");
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      Drawable d = Drawable.createFromStream(inputStream, null);
+      Favorite.setImageDrawable(d);
+      if (inputStream != null) {
+        try {
+          inputStream.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+
       if (rec.getImage() != null) {
-        InputStream inputStream = null;
+        inputStream = null;
         try {
           inputStream = mContext.getAssets().open(recp.getImage());
         } catch (IOException e) {
           e.printStackTrace();
         }
-        Drawable d = Drawable.createFromStream(inputStream, null);
+        d = Drawable.createFromStream(inputStream, null);
         Photo.setImageDrawable(d);
         if (inputStream != null) {
           try {
