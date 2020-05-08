@@ -76,7 +76,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
   public boolean openDataBase() throws SQLException {
     mDataBase =
-            SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+        SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null, SQLiteDatabase.CREATE_IF_NECESSARY);
     return mDataBase != null;
   }
 
@@ -120,9 +120,11 @@ class DatabaseHelper extends SQLiteOpenHelper {
 
   public ArrayList<Integer> listProduct1() {
     ArrayList<Integer> products = new ArrayList<>();
-    String selectQuery = "SELECT p_id FROM app_entry WHERE p_priority =? INTERSECT SELECT product_id FROM app_product WHERE product_fridge =?;";
+    String selectQuery =
+        "SELECT p_id FROM app_entry WHERE p_priority =? INTERSECT SELECT product_id FROM"
+            + " app_product WHERE product_fridge =?;";
     SQLiteDatabase db = this.getWritableDatabase();
-    Cursor cursor = db.rawQuery(selectQuery, new String[]{"1","1"});
+    Cursor cursor = db.rawQuery(selectQuery, new String[] {"1", "1"});
     if (cursor.moveToFirst()) {
       do {
 
@@ -134,7 +136,6 @@ class DatabaseHelper extends SQLiteOpenHelper {
     cursor.close();
     return products;
   }
-
 
   ///////////////////// запросы
   public ArrayList<Recipes_class> listRecipes(String _selectQuere, String[] _where) {
@@ -163,7 +164,10 @@ class DatabaseHelper extends SQLiteOpenHelper {
           recipe.setImage(cursor.getString(9));
         } else recipe.setImage("NULL");
 
-        Cursor cursor1 = db.rawQuery("SELECT p_id FROM app_entry WHERE p_priority =? AND r_id = ?;", new String[] {"1",String.valueOf(recipe.GetId())});
+        Cursor cursor1 =
+            db.rawQuery(
+                "SELECT p_id FROM app_entry WHERE p_priority =? AND r_id = ?;",
+                new String[] {"1", String.valueOf(recipe.GetId())});
         int h = 0;
         ArrayList<Integer> product = new ArrayList<Integer>();
         if (cursor1.moveToFirst()) {
@@ -171,11 +175,9 @@ class DatabaseHelper extends SQLiteOpenHelper {
             product.add(cursor1.getInt(0));
             h++;
           } while (cursor1.moveToNext());
-
         }
         recipe.setProducts(product);
         cursor1.close();
-
 
         recipes.add(recipe);
       } while (cursor.moveToNext());

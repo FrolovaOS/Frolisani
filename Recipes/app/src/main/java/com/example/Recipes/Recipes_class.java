@@ -29,16 +29,16 @@ public class Recipes_class {
   }
 
   public Recipes_class(
-          int id,
-          String name,
-          String character,
-          String instruction,
-          String product,
-          String time,
-          String level,
-          int block,
-          int favorites,
-          int position) {
+      int id,
+      String name,
+      String character,
+      String instruction,
+      String product,
+      String time,
+      String level,
+      int block,
+      int favorites,
+      int position) {
     this.id = id;
     this.name = name;
     this.character = character;
