@@ -37,13 +37,6 @@ jobs:
     needs: [codeStyle, build]
     steps:
       - uses: actions/checkout@v2
-      - name: create commits
-        run: |
-              git config user.name 'BoytsovVA'
-              git config user.email 'vladboi8@gmail.com'
-              git commit -am "Modify tracked file during workflow"
-              git add -A
-              git commit -m "Add untracked file during workflow"
       - name: pull request
         uses: peter-evans/create-pull-request@v2
         
