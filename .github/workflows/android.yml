@@ -32,12 +32,12 @@ jobs:
            cd ./Recipes/app
            gradle build
            
-  create Pull Request:
+  createPullRequest:
     runs-on: ubuntu-latest
     needs: [codeStyle, build]
     steps:
       - uses: actions/checkout@v2
-      - name: Create commits
+      - name: create commits
         run: |
               git config user.name 'BoytsovVA'
               git config user.email 'vladboi8@gmail.com'
