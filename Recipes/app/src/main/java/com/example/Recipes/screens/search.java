@@ -36,38 +36,38 @@ public class search extends AppCompatActivity implements View.OnClickListener {
     Drinks.setOnClickListener(this);
 
     editText.setOnKeyListener(
-            new View.OnKeyListener() {
-              public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_DOWN && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                  String NameRecipes = editText.getText().toString();
-                  Intent intent = new Intent(search.this, Recicler_search.class);
-                  String req =
-                          "WITH RECURSIVE tmp AS ( "
-                                  + "SELECT app.*, d_l.pr_id, d_l.ch_id "
-                                  + "FROM app_recipes app "
-                                  + "JOIN descriptor d_l "
-                                  + "ON (upper(app.recipes_name) = upper(?) AND app.recipes_id = d_l.pr_id) "
-                                  + "UNION "
-                                  + "SELECT app.*, d_l.pr_id, d_l.ch_id "
-                                  + "FROM app_recipes app "
-                                  + "JOIN descriptor d_l "
-                                  + "ON t.ch_id = d_l.pr_id "
-                                  + "JOIN tmp t "
-                                  + "ON app.recipes_id = t.ch_id "
-                                  + ") "
-                                  + "select tmp.* from tmp "
-                                  + "GROUP BY tmp.recipes_id ";
-                  String data1 = NameRecipes;
-                  ArrayList<String> request = new ArrayList<String>();
-                  request.add(req);
-                  request.add(data1);
-                  intent.putStringArrayListExtra(EXTRA_REC7, request);
-                  startActivity(intent);
-                  return true;
-                }
-                return false;
-              }
-            });
+        new View.OnKeyListener() {
+          public boolean onKey(View v, int keyCode, KeyEvent event) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+              String NameRecipes = editText.getText().toString();
+              Intent intent = new Intent(search.this, Recicler_search.class);
+              String req =
+                  "WITH RECURSIVE tmp AS ( "
+                      + "SELECT app.*, d_l.pr_id, d_l.ch_id "
+                      + "FROM app_recipes app "
+                      + "JOIN descriptor d_l "
+                      + "ON (upper(app.recipes_name) = upper(?) AND app.recipes_id = d_l.pr_id) "
+                      + "UNION "
+                      + "SELECT app.*, d_l.pr_id, d_l.ch_id "
+                      + "FROM app_recipes app "
+                      + "JOIN descriptor d_l "
+                      + "ON t.ch_id = d_l.pr_id "
+                      + "JOIN tmp t "
+                      + "ON app.recipes_id = t.ch_id "
+                      + ") "
+                      + "select tmp.* from tmp "
+                      + "GROUP BY tmp.recipes_id ";
+              String data1 = NameRecipes;
+              ArrayList<String> request = new ArrayList<String>();
+              request.add(req);
+              request.add(data1);
+              intent.putStringArrayListExtra(EXTRA_REC7, request);
+              startActivity(intent);
+              return true;
+            }
+            return false;
+          }
+        });
   }
 
   @Override
