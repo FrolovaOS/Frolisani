@@ -24,7 +24,8 @@
             android:minHeight="64dp"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="some text for testing" />
+            tools:text="some text for testing"
+            tools:ignore="MissingConstraints" />
 
         <Switch
             android:id="@+id/switch1"
