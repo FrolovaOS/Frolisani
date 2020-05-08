@@ -34,7 +34,7 @@ jobs:
            
   pull-request:
       runs-on: ubuntu-latest
-      needs: [build]
+      needs: [build, codeStyle]
       steps:
       - uses: actions/checkout@v2
       - name: pull-request
