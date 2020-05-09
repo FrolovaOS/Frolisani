@@ -9,7 +9,6 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -47,10 +46,11 @@ public class Fridg extends AppCompatActivity implements View.OnClickListener {
     recyclerView.setAdapter(adapter);
 
     editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
-    editText.setOnEditorActionListener(new EditText.OnEditorActionListener() {
-      @Override
-      public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        if (actionId == EditorInfo.IME_ACTION_DONE) {
+    editText.setOnEditorActionListener(
+        new EditText.OnEditorActionListener() {
+          @Override
+          public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
 
               NameProduct = editText.getText().toString();
               req = "SELECT * FROM app_product WHERE Product_name=?;";
