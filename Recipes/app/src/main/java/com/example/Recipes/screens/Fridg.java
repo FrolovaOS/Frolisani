@@ -5,8 +5,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -43,10 +45,13 @@ public class Fridg extends AppCompatActivity implements View.OnClickListener {
     final Adapter_product adapter = new Adapter_product(this, prod);
     recyclerView.setAdapter(adapter);
 
-    editText.setOnKeyListener(
-        new View.OnKeyListener() {
-          public boolean onKey(View v, int keyCode, KeyEvent event) {
-            if (event.getAction() == KeyEvent.ACTION_DOWN && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+    editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
+    editText.setOnEditorActionListener(
+        new EditText.OnEditorActionListener() {
+          @Override
+          public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+
               NameProduct = editText.getText().toString();
               req = "SELECT * FROM app_product WHERE Product_name=?;";
               String Where[] = {NameProduct};
@@ -54,9 +59,23 @@ public class Fridg extends AppCompatActivity implements View.OnClickListener {
               int position = 0;
               for (int i = 0; i < size; i++) {
                 String name = prod.get(i).getName();
-
-                if (prod.get(i).getName().equalsIgnoreCase(NameProduct))
-                  position = prod.get(i).getPosition();
+                if (NameProduct.length() == 1) {
+                  if (prod.get(i)
+                      .getName()
+                      .substring(0, 1)
+                      .toLowerCase()
+                      .contains(NameProduct.toLowerCase())) {
+                    position = prod.get(i).getPosition();
+                    break;
+                  }
+                } else if (NameProduct.length() > 1) {
+                  if (prod.get(i).getName().toLowerCase().contains(NameProduct.toLowerCase())) {
+                    position = prod.get(i).getPosition();
+                    break;
+                  }
+                }
+                //                if (prod.get(i).getName().equalsIgnoreCase(NameProduct))
+                //                  position = prod.get(i).getPosition();
               }
               recyclerView.scrollToPosition(position);
               return true;

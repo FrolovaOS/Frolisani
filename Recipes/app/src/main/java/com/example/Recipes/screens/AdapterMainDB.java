@@ -201,6 +201,7 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
           InStock += cursor.getString(0) + ", ";
         } while (cursor.moveToNext());
       }
+      if (InStock.length() > 2) InStock = InStock.substring(0, InStock.length() - 2);
       instock.setText(InStock);
       selectQuery =
           "SELECT product_name "
@@ -213,6 +214,7 @@ public class AdapterMainDB extends RecyclerView.Adapter<AdapterMainDB.RecipesVie
           NotInStock += cursor.getString(0) + ", ";
         } while (cursor.moveToNext());
       }
+      if (NotInStock.length() > 2) NotInStock = NotInStock.substring(0, NotInStock.length() - 2);
       notinstock.setText(NotInStock);
       db.close();
       cursor.close();
