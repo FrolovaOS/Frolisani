@@ -14,7 +14,7 @@
         android:maxLines="1"
         android:inputType="text"
         android:imeOptions="actionDone"
-        android:hint="Введите рецепт"
+        android:hint="Введите продукт"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
