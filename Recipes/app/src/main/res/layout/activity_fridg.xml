@@ -29,7 +29,6 @@
         android:scrollbars="vertical"
         android:verticalScrollbarPosition="right"
         app:layout_constraintBottom_toTopOf="@+id/search_recipes"
-        app:layout_constraintTop_toBottomOf="@+id/Search"
         tools:layout_editor_absoluteX="4dp"
         tools:ignore="MissingConstraints" />
 
